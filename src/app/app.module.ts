@@ -3,16 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import {LandingPageModule} from "./landing-page/landing-page.module";
+import {LoginPageModule} from "./login-page/login-page.module";
+import { NavigationComponent } from './navigation/navigation.component';
+import { HeaderComponent } from './header/header.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LandingPageModule,
+    LoginPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
