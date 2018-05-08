@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import {LandingPageModule} from "./landing-page/landing-page.module";
 import {LoginPageModule} from "./login-page/login-page.module";
 import { NavigationComponent } from './navigation/navigation.component';
-import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
