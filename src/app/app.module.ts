@@ -3,16 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { HeaderModule } from './header/header.module';
+import { MainPageModule } from './main-page/main-page.module';
+import { LandingPageModule } from './landing-page/landing-page.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HeaderModule,
+    MainPageModule,
+    LandingPageModule,
+   
+   
+
   ],
   providers: [],
   bootstrap: [AppComponent]
