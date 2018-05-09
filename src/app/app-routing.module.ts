@@ -11,20 +11,18 @@ import { LoginPageComponent } from './login-page/login-page.component';
   
     
 const routes: Routes = [
-  { path: '',redirectTo:'/landing-page',pathMatch:'full'},
+  
   {path:'register',component:RegisterComponent},
   {path:'welcome',component:WelcomeComponent},
   {path:'main-page',component:MainPageComponent},
   {path:'login',component:LoginPageComponent},
-  {path:'landing-page',component:LandingPageComponent}
+  {path:'',component:LandingPageComponent}
   
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),
-  
- 
+  imports: [RouterModule.forRoot(routes), 
   ],
   exports: [RouterModule]
 })
