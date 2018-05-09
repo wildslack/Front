@@ -23,9 +23,6 @@ import { LoginPageModule } from './login-page/login-page.module';
     LandingPageModule,
     RegisterModule,
     LoginPageModule
-   
-   
-
   ],
   providers: [],
   bootstrap: [AppComponent]
