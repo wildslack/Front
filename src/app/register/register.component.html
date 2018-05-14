@@ -10,7 +10,7 @@
               <div class="my-login-page card">
                   <div class="card-body">
                       <h4 class="card-title">Register</h4>
-                      <form #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+                      <form ngNativeValidate #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
                           <div class="form-group">
                               <label for="email">E-Mail Address</label>
                               <input type="email" class="form-control" name="mail" value="" #mail="ngModel" [(ngModel)]="user.mail" required autofocus>
@@ -21,8 +21,13 @@
                         </div>  
                           <div class="form-group">
                               <label>Password</label>
-                              <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="user.password" required data-eye>
-                          </div> 
+                              <input  id="password"type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="user.password" required data-eye>
+                          </div>
+                          <div class="form-group">
+                            <label>Repeat Password</label>
+                            <input id="repeat-password" type="password" class="form-control" name="repeat-password"  required data-eye>
+                            
+                        </div>
                           <div class="form-group">
                             <label>WorkSpace name</label>
                             <input type="text" class="form-control" name="workspace"  #workspace="ngModel" [(ngModel)]="user.workspace" required data-eye>

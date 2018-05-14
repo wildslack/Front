@@ -10,7 +10,7 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
-  readonly rootUrl = '';
+  readonly rootUrl = 'http://localhost:8080';
   constructor(private http :HttpClient) { }
 
   registerUser(user :User){
@@ -21,17 +21,21 @@ export class UserService {
       workspace : user.workspace,
       password : user.password,
     }
-    var data = "mail=" + body.mail  + "&password=" + body.password +"&nickname="+body.nickname +"&worspace="+body.workspace;
-    return this.http.post(this.rootUrl+'',data);
+    const data = {
+      email:body.mail,
+      password:body.password,
+      repassword:body.password
+    }
+    return this.http.post(this.rootUrl+'/register',data);
   }
 
   userLogin(mail,password){
     var data = "mail=" + mail  + "&password=" + password;
-    return this.http.post(this.rootUrl+'',data);
+    return this.http.post(this.rootUrl+'/login',data);
   }
 
   getUserClaims(){
-    return  this.http.get(this.rootUrl+'/api/GetUserClaims');
+    return  this.http.get(this.rootUrl+'/login');
    }
 
 }

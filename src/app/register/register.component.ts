@@ -1,10 +1,9 @@
-import { Component, Input, Output} from '@angular/core';
+import { Component, Input, Output, Directive} from '@angular/core';
 
 import { UserService } from '../shared/user.service';
 import { NgForm } from '@angular/forms';
 import { User } from '../shared/user.model';
 import { Router } from '@angular/router';
-
 
 
 
@@ -15,11 +14,12 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {  
   user :User;
-     
+  validate = true;     
   constructor(private userService:UserService,private router:Router) { }
 
   ngOnInit() {
     this.resetForm();
+    
            
   }
   resetForm(form?:NgForm){
@@ -35,11 +35,21 @@ export class RegisterComponent {
   }
 
   OnSubmit(form : NgForm){
+    var password = (<HTMLInputElement>document.getElementById('password')).value;
+    var repeatPassword = (<HTMLInputElement>document.getElementById('repeat-password')).value;
+    if (password == repeatPassword){
+      this.validate = true;      
     this.userService.registerUser(form.value,).subscribe((data: any)=>{
       this.router.navigate(['/welcome']);
       if(data.Succeeded == true){
         this.resetForm(form);
       }
     })
-  }  
+  }
+  this.validate =false  
+  }
+  
+  
+  
+  
 }
