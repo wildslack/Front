@@ -36,7 +36,7 @@ export class RegisterComponent {
 
   OnSubmit(form : NgForm){
     var password = (<HTMLInputElement>document.getElementById('password')).value;
-    var repeatPassword = (<HTMLInputElement>document.getElementById('repeat-password')).value;
+    var repeatPassword = (<HTMLInputElement>document.getElementById('repassword')).value;
     if (password == repeatPassword){
       this.validate = true;      
     this.userService.registerUser(form.value,).subscribe((data: any)=>{
