@@ -13,7 +13,7 @@
                 <div class="my-login-page card">
                     <div class="card-body">
                         <h4 class="card-title">Login</h4>
-                        <form #userLoginForm = "ngForm" (ngSubmit)="OnSubmit(mail.value,password.value)">
+                        <form ngNativeValidate #userLoginForm = "ngForm" (ngSubmit)="OnSubmit(mail.value,password.value)">
                             <div class="form-group">
                                 <label>E-Mail Address</label>
                                 <input type="email" class="form-control" name="mail" value="" #mail ngModel required autofocus>
