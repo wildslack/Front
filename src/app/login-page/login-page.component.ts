@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { UserService } from '../shared/user.service';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-login-page',
@@ -6,10 +12,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
+  isLoginError : boolean = false;
 
-  constructor() { }
+  constructor(private userService : UserService,private router : Router) { }
 
   ngOnInit() {
   }
+
+  OnSubmit(userName,password){
+    this.userService.userLogin(userName,password).subscribe((data : any)=>{
+    this.router.navigate(['main-page']);
+   },
+   (err : HttpErrorResponse)=>{
+    this.isLoginError = true;      
+   });
+ }
+
+ 
 
 }

@@ -8,6 +8,9 @@ import { MainPageModule } from './main-page/main-page.module';
 import { LandingPageModule } from './landing-page/landing-page.module';
 import { RegisterModule } from './register/register.module';
 import { LoginPageModule } from './login-page/login-page.module';
+import { UserService } from './shared/user.service';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -16,15 +19,17 @@ import { LoginPageModule } from './login-page/login-page.module';
     
   ],
   imports: [
+   
     BrowserModule,
     AppRoutingModule,
     HeaderModule,
     MainPageModule,
     LandingPageModule,
     RegisterModule,
-    LoginPageModule
+    LoginPageModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
