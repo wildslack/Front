@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {  Response } from "@angular/http";
+import { Response } from '@angular/http';
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
 import { User } from './user.model';
@@ -11,31 +11,31 @@ import { User } from './user.model';
 })
 export class UserService {
   readonly rootUrl = 'http://localhost:8080';
-  constructor(private http :HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  registerUser(user :User){
-    const body: User ={
+  registerUser(user: User) {
+    const body: User = {
       id : user.id,
       email : user.email,
       nickname : user.nickname,
       workspaceName : user.workspaceName,
       password : user.password,
-    }
-    
-    
-    return this.http.post(this.rootUrl+'/register',body);
+    };
+
+
+    return this.http.post(this.rootUrl + '/register', body);
   }
 
-  userLogin(email,password){
+  userLogin(email, password) {
     const data = {
-      email:email,
-      password:password 
-    }    
-    return this.http.post(this.rootUrl+'/login',data);
+      email: email,
+      password: password
+    };
+    return this.http.post(this.rootUrl + '/login', data);
   }
 
-  getUserClaims(){
-    return  this.http.get(this.rootUrl+'/login');
+  getUserClaims() {
+    return  this.http.get(this.rootUrl + '/login');
    }
 
 }
