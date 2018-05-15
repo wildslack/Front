@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {  
   user :User;
-  validate = true;     
+  validate = true;   
   constructor(private userService:UserService,private router:Router) { }
 
   ngOnInit() {
@@ -27,10 +27,10 @@ export class RegisterComponent {
     form.reset();
     this.user = { 
       id:0,     
-      mail:'',
+      email:'',
       nickname:'',
       password:'',
-      workspace:'',
+      workspaceName:'',
     }
   }
 
@@ -48,8 +48,4 @@ export class RegisterComponent {
   }
   this.validate =false  
   }
-  
-  
-  
-  
 }
