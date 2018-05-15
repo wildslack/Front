@@ -14,7 +14,10 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {  
   user :User;
-  validate = true;     
+  validate = false;
+  password = (<HTMLInputElement>document.getElementById('password'));
+  repeatPassword = (<HTMLInputElement>document.getElementById('repassword')); 
+   
   constructor(private userService:UserService,private router:Router) { }
 
   ngOnInit() {
@@ -27,29 +30,26 @@ export class RegisterComponent {
     form.reset();
     this.user = { 
       id:0,     
-      mail:'',
+      email:'',
       nickname:'',
       password:'',
-      workspace:'',
+      workspaceName:'',
     }
   }
 
   OnSubmit(form : NgForm){
-    var password = (<HTMLInputElement>document.getElementById('password')).value;
-    var repeatPassword = (<HTMLInputElement>document.getElementById('repassword')).value;
-    if (password == repeatPassword){
-      this.validate = true;      
+    if(this.password.value != this.repeatPassword.value) {
+      this.repeatPassword.setCustomValidity("Passwords Don't Match");          
     this.userService.registerUser(form.value,).subscribe((data: any)=>{
       this.router.navigate(['/welcome']);
       if(data.Succeeded == true){
         this.resetForm(form);
       }
-    })
+    })} else {
+      this.repeatPassword.setCustomValidity('');
+      
+    } 
+   
   }
-  this.validate =false  
-  }
-  
-  
-  
   
 }

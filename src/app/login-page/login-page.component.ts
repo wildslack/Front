@@ -19,8 +19,8 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  OnSubmit(userName,password){
-    this.userService.userLogin(userName,password).subscribe((data : any)=>{
+  OnSubmit(email,password){
+    this.userService.userLogin(email,password).subscribe((data : any)=>{
     this.router.navigate(['main-page']);
    },
    (err : HttpErrorResponse)=>{

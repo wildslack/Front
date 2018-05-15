@@ -12,12 +12,13 @@
                       <h4 class="card-title">Register</h4>
                       <form ngNativeValidate #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
                           <div class="form-group">
+                               
                               <label for="email">E-Mail Address</label>
-                              <input type="email" class="form-control" name="mail" value="" #mail="ngModel" [(ngModel)]="user.mail" required autofocus>
+                              <input type="email" class="form-control" name="mail" value="" #email="ngModel" [(ngModel)]="user.mail" required autofocus>
                           </div>
                           <div class="form-group">
                             <label>Nickname</label>
-                            <input type="text" class="form-control" name="nickname"  #workspace="ngModel" [(ngModel)]="user.nickname" required data-eye>
+                            <input type="text" class="form-control" name="nickname"  #workspaceName="ngModel" [(ngModel)]="user.nickname" required data-eye>
                         </div>  
                           <div class="foMerge branch 'Service-User' into devrm-group">
                               <label>Password</label>
@@ -35,7 +36,8 @@
                               <button type="submit" class="btn btn-primary btn-block">
                                   Register
                               </button>
-                          </div>                          
+                          </div>
+                                                   
                       </form>
                   </div>
               </div>
