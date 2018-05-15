@@ -10,7 +10,7 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
-  readonly rootUrl = 'http://localhost:8080';
+  readonly rootUrl = '';
   constructor(private http :HttpClient) { }
 
   registerUser(user :User){
@@ -23,7 +23,7 @@ export class UserService {
     }
     
     
-    return this.http.post(this.rootUrl+'/register',body);
+    return this.http.post(this.rootUrl+'',body);
   }
 
   userLogin(email,password){
