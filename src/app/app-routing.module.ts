@@ -16,7 +16,7 @@ const routes: Routes = [
 
   {path: 'register', component: RegisterComponent},
   {path: 'welcome', component: WelcomeComponent},
-  {path: 'main-page', component: MainPageComponent},
+  {path: 'main-page', component: MainPageComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginPageComponent},
   {path: '', component: LandingPageComponent},
   {path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},

@@ -10,16 +10,16 @@ import { RegisterModule } from './register/register.module';
 import { LoginPageModule } from './login-page/login-page.module';
 import { UserService } from './shared/user.service';
 import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './_guards/auth.guard';
+import { AuthenticationService } from './shared/authentication.service';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
-   
     BrowserModule,
     AppRoutingModule,
     HeaderModule,
@@ -29,7 +29,11 @@ import { FormsModule } from '@angular/forms';
     LoginPageModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [
+    AuthGuard,
+    AuthenticationService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

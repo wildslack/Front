@@ -7,8 +7,8 @@
           <i class="fa fa-circle online"></i>
           <i class="fa fa-circle online" style="color: #AED2A6"></i>
           <i class="fa fa-circle online" style="color:#DAE9DA"></i>       
-        
-      </ul>
+          <li *ngFor="let workspace of workspaces">{{workspace.workspaceName}}</li>      
+        </ul>
       
     </div> <!-- end chat-history -->
     
@@ -16,7 +16,7 @@
       <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>      
       
       <button>Send</button>
-
+      <p><a [routerLink]="['/login']">Logout</a></p>
     </div> <!-- end chat-message -->
     
   </div> <!-- end chat -->
