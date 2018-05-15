@@ -1,7 +1,7 @@
 export class User {
     id:number;
-    mail:string;
+    email:string;
     password:string;
     nickname:string;
-    workspace:string;
+    workspaceName:string;
 }

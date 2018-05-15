@@ -16,21 +16,21 @@ export class UserService {
   registerUser(user :User){
     const body: User ={
       id : user.id,
-      mail : user.mail,
+      email : user.email,
       nickname : user.nickname,
-      workspace : user.workspace,
+      workspaceName : user.workspaceName,
       password : user.password,
     }
-    const data = {
-      email:body.mail,
-      password:body.password,
-      repassword:body.password
-    }
-    return this.http.post(this.rootUrl+'/register',data);
+    
+    
+    return this.http.post(this.rootUrl+'/register',body);
   }
 
-  userLogin(mail,password){
-    var data = "mail=" + mail  + "&password=" + password;
+  userLogin(email,password){
+    const data = {
+      email:email,
+      password:password 
+    }    
     return this.http.post(this.rootUrl+'/login',data);
   }
 
