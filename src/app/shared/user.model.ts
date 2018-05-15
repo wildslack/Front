@@ -4,4 +4,6 @@ export class User {
     password: string;
     nickname: string;
     workspaceName: string;
+
+    constructor() { }
 }

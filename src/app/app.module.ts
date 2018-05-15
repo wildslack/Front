@@ -12,6 +12,7 @@ import { UserService } from './shared/user.service';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './_guards/auth.guard';
 import { AuthenticationService } from './shared/authentication.service';
+import { WorkspaceService } from './shared/workspace.service';
 
 
 
@@ -32,6 +33,7 @@ import { AuthenticationService } from './shared/authentication.service';
   providers: [
     AuthGuard,
     AuthenticationService,
+    WorkspaceService,
     UserService
   ],
   bootstrap: [AppComponent]

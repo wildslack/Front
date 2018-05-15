@@ -4,6 +4,7 @@ import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthenticationService } from '../shared/authentication.service';
+import { User } from '../shared/user.model';
 
 
 
@@ -13,7 +14,7 @@ import { AuthenticationService } from '../shared/authentication.service';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-  model: any = {};
+  user: User;
   isLoginError = false;
   loading = false;
   error = '';
@@ -39,7 +40,7 @@ export class LoginPageComponent implements OnInit {
 
   login() {
     this.loading = true;
-    this.authenticationService.login(this.model.userName, this.model.password)
+    this.authenticationService.login(this.user.email, this.user.password)
         .subscribe(result => {
           if (result === true) {
             // login succesful
