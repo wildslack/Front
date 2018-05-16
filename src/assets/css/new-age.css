@@ -278,8 +278,8 @@ section.features .feature-item i {
   font-size: 80px;
   display: block;
   margin-bottom: 15px;
-  background: -webkit-linear-gradient(to left, #7b4397, #dc2430);
-  background: linear-gradient(to left, #7b4397, #dc2430);
+  background: -webkit-linear-gradient(to left, #fdfdfd, #dc2430);
+  background: linear-gradient(to left, #fdfdfd, #dc2430);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -403,6 +403,12 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   background: #fdcc52;
   background: -webkit-linear-gradient(#fdcc52, #fdc539);
   background: linear-gradient(#fdcc52, #fdc539);
+}
+
+.bg-second {
+  background: white;
+  background: -webkit-linear-gradient(white, white);
+  background: linear-gradient(white, white);
 }
 
 .text-primary {
