@@ -14,9 +14,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     RouterModule,
     HeaderModule,
     FormsModule
-    
+
   ],
   declarations: [RegisterComponent],
-  exports:[RegisterComponent,HeaderComponent]
+  exports: [RegisterComponent, HeaderComponent]
 })
 export class RegisterModule { }

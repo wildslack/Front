@@ -14,7 +14,7 @@ import { ChatComponent } from './chat/chat.component';
     RouterModule
 
   ],
-  declarations: [WelcomeComponent,MainPageComponent, ChatComponent],
-  exports :[WelcomeComponent,MainPageComponent,HeaderComponent,ChatComponent],
+  declarations: [WelcomeComponent, MainPageComponent, ChatComponent],
+  exports: [WelcomeComponent, MainPageComponent, HeaderComponent, ChatComponent],
 })
 export class MainPageModule { }

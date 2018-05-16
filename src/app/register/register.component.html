@@ -1,63 +1,67 @@
 <header class="masthead">
-  <div class="container h-100">
-      <div class="row h-100">
-          <div class="col-lg-6 my-auto">
-              <div class="header-content mx-auto">
-                  <h2>Welcome to <span style="color: orange;">WildSlack</span></h2><br/>                  
-              </div>
-          </div>
-          <div class="my-login-page col-lg-6 my-auto">
-              <div class="my-login-page card">
-                  <div class="card-body">
-                      <h4 class="card-title">Register</h4>
-                      <form ngNativeValidate #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
-                          <div class="form-group">
-                               
-                              <label for="email">E-Mail Address</label>
-                              <input type="email" class="form-control" name="mail" value="" #email="ngModel" [(ngModel)]="user.mail" required autofocus>
-                          </div>
-                          <div class="form-group">
-                            <label>Nickname</label>
-                            <input type="text" class="form-control" name="nickname"  #workspaceName="ngModel" [(ngModel)]="user.nickname" required data-eye>
-                        </div>  
-                          <div class="foMerge branch 'Service-User' into devrm-group">
-                              <label>Password</label>
-                              <input  id="password" type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="user.password" required data-eye>
-                          </div> 
-                          <div class="foMerge branch 'Service-User' into devrm-group">
-                            <label>Password</label>
-                            <input id="repassword" type="password" class="form-control" name="repassword"  required data-eye>
-                        </div> 
-                          <div class="form-group">
-                            <label>WorkSpace name</label>
-                            <input type="text" class="form-control" name="workspace"  #workspace="ngModel" [(ngModel)]="user.workspace" required data-eye>
-                        </div>                              
-                          <div class="form-group no-margin">
-                              <button type="submit" class="btn btn-primary btn-block">
-                                  Register
-                              </button>
-                          </div>
-                                                   
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-6 my-auto">
+                <div class="header-content mx-auto">
+                    <h2>Welcome to
+                        <span style="color: orange;">WildSlack</span>
+                    </h2>
+                    <br/>
+                </div>
+            </div>
+            <div class="my-login-page col-lg-6 my-auto">
+                <div class="my-login-page card">
+                    <div class="card-body">
+                        <h4 class="card-title">Register</h4>
+                        <form ngNativeValidate #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+                            <div class="form-group">
+                                <label for="email">E-Mail Address</label>
+                                <input type="email" class="form-control" name="email" value="" #email="ngModel" [(ngModel)]="user.email" required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label>Nickname</label>
+                                <input type="text" class="form-control" name="nickname" #nickname="ngModel" [(ngModel)]="user.nickname" required data-eye>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input id="password" type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="user.password"
+                                    required data-eye>
+                            </div>
+                            <div class="form-group">
+                                <label> Repeat password</label>
+                                <input id="repassword" type="password" class="form-control" name="repassword" required data-eye>
+                            </div>
+                            <div class="form-group">
+                                <label>WorkSpace name</label>
+                                <input type="text" class="form-control" name="workspaceName" #workspaceName="ngModel" [(ngModel)]="user.workspaceName" required
+                                    data-eye>
+                            </div>
+                            <div class="form-group no-margin">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    Register
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 <footer>
-  <div class="container">
-      <p>&copy; Your Website 2018. All Rights Reserved.</p>
-      <ul class="list-inline">
-          <li class="list-inline-item">
-              <a href="#">Privacy</a>
-          </li>
-          <li class="list-inline-item">
-              <a href="#">Terms</a>
-          </li>
-          <li class="list-inline-item">
-              <a href="#">FAQ</a>
-          </li>
-      </ul>
-  </div>
+    <div class="container">
+        <p>&copy; Your Website 2018. All Rights Reserved.</p>
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <a href="#">Privacy</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">Terms</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">FAQ</a>
+            </li>
+        </ul>
+    </div>
 </footer>
