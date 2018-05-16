@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class AuthenticationService {
+    readonly rootUrl = 'http://178.62.117.198:8080/wildslack';
     public token: string;
 
     constructor(private http: HttpClient) {
@@ -14,17 +15,23 @@ export class AuthenticationService {
         this.token = currentUser && currentUser.token;
     }
 
-    login(username: string, password: string): Observable<boolean> {// nous, ça va être mail ou nickname et pas username
-        return this.http.post('/api/authenticate', JSON.stringify({ username: username, password: password }))
-            .map((response: Response) => {
+
+
+    login(email: string, password: string): Observable<boolean> {// nous, ça va être mail ou nickname et pas username
+        const options = {
+            headers: HttpHeaders,
+            observe: 'response' as 'body', // to display the full response & as 'body' for type cast
+            };
+        return this.http.post(this.rootUrl + '/login', options)
+            .map((headers) => {
                 // login successful if there's a jwt token in the response
-                const token = response.json() && response.json().token;
+                const token = options.headers.get('Authorization'); // && response.json().token;
                 if (token) {
                     // set token property
                     this.token = token;
 
                     // store username and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
+                    localStorage.setItem('currentUser', JSON.stringify({ email: email, token: token }));
 
                     // return true to indicate successful login
                     return true;

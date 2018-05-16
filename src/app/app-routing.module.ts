@@ -21,8 +21,8 @@ const routes: Routes = [
   {path: '', component: LandingPageComponent},
   {path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},
 
-/*   // otherwise redirect to home
-  { path: '**', redirectTo: '' } */
+  // otherwise redirect to home
+  { path: '**', redirectTo: '' }
 ];
 
 

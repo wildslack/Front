@@ -11,7 +11,7 @@ import { AuthenticationService } from './authentication.service';
   providedIn: 'root'
 })
 export class UserService {
-  readonly rootUrl = 'http://localhost:8080';
+  readonly rootUrl = 'http://178.62.117.198:8080/wildslack';
   constructor(
     private http: HttpClient,
     private authenticationService: AuthenticationService) { }
