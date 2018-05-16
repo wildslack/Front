@@ -12,8 +12,7 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   declarations: [LandingPageComponent],
-  exports:[LandingPageComponent,HeaderComponent]
-  
+  exports: [LandingPageComponent, HeaderComponent]
+
 })
 export class LandingPageModule { }
- 
