@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Response } from '@angular/http';
+import { Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -15,31 +15,33 @@ export class AuthenticationService {
         this.token = currentUser && currentUser.token;
     }
 
+    login(email: string, password: string): Observable<boolean> {
 
+        return this.http.post(
+            this.rootUrl + '/login',
+            JSON.stringify({ email: email, password: password }),
+            {headers: HttpHeaders, observe: 'response'});
+        // return this.http.post(
+        //     this.rootUrl + '/login',
+        //     JSON.stringify({ email: email, password: password }),
+        //     {headers: httpHeaders, observe: 'response'})
+        //         .map((data) => {
+        //             // login successful if there's a jwt token in the response
+        //             const token = data.Authorization; // && response.json().token;
+        //             if (token) {
+        //                 // set token property
+        //                 this.token = token;
 
-    login(email: string, password: string): Observable<boolean> {// nous, ça va être mail ou nickname et pas username
-        const options = {
-            headers: HttpHeaders,
-            observe: 'response' as 'body', // to display the full response & as 'body' for type cast
-            };
-        return this.http.post(this.rootUrl + '/login', options)
-            .map((headers) => {
-                // login successful if there's a jwt token in the response
-                const token = options.headers.get('Authorization'); // && response.json().token;
-                if (token) {
-                    // set token property
-                    this.token = token;
+        //                 // store username and jwt token in local storage to keep user logged in between page refreshes
+        //                 localStorage.setItem('currentUser', JSON.stringify({ email: email, token: token }));
 
-                    // store username and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify({ email: email, token: token }));
-
-                    // return true to indicate successful login
-                    return true;
-                } else {
-                    // return false to indicate failed login
-                    return false;
-                }
-            });
+        //                 // return true to indicate successful login
+        //                 return true;
+        //             } else {
+        //                 // return false to indicate failed login
+        //                 return false;
+        //             }
+        //         });
     }
 
     logout(): void {
