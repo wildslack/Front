@@ -4,6 +4,7 @@ import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
+import { User } from '../shared/user.model';
 
 
 
@@ -13,23 +14,29 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-  isLoginError: boolean = false;
- 
+  user: User;
+  isLoginError : boolean =false;
+  loading = false;
+  
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService,private router: Router,){}
+    
 
   ngOnInit() {
-    
+    this.user = new User;    
   }
 
-    OnSubmit(email, password) {
-    this.userService.userLogin(email, password).subscribe((data: any) => {
-      this.router.navigate(['main-page']);
+  OnSubmit() {
+    this.userService.userAuthentication(this.user.email,this.user.password).subscribe((data :any)=>{
+      localStorage.setItem('userToken',data.Authorization);
+      this.router.navigate(['main-page'])
     },
-      (err: HttpErrorResponse) => {
-        this.isLoginError = true;
-      }); 
-
-    }      
+  (error :HttpErrorResponse)=>{
+    this.isLoginError = true;
+  });
+  }
+        
+   
+  
 
 }

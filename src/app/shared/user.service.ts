@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Response } from "@angular/http";
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
@@ -11,7 +11,7 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
-  readonly rootUrl = '';
+  readonly rootUrl = 'http://178.62.117.198:8080/wildslack';
   constructor(private http: HttpClient) { }
 
   registerUser(user: User) {
@@ -22,21 +22,23 @@ export class UserService {
       workspaceName: user.workspaceName,
       password: user.password,
     }
-
-
-    return this.http.post(this.rootUrl + '', body);
+       return this.http.post(this.rootUrl + '/register', body);
   }
 
-  userLogin(email, password) {
-    const data = {
-      email: email,
-      password: password
+  userAuthentication(email,password){
+    const body = {
+      email:email,
+      password:password,
     }
-    return this.http.post(this.rootUrl + '/login', data);
+    
+    var reqHeader = new HttpHeaders({'content-type':'application/json'})
+    return this.http.post(this.rootUrl+'/login',body,{headers:reqHeader});
   }
+
+  
 
   getUserClaims() {
     return this.http.get(this.rootUrl + '/login');
   }
- 
+
 }
