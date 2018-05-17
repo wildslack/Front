@@ -29,10 +29,9 @@ export class UserService {
     const body = {
       email:email,
       password:password,
-    }
+    }   
     
-    var reqHeader = new HttpHeaders({'content-type':'application/json'})
-    return this.http.post(this.rootUrl+'/login',body,{headers:reqHeader});
+    return this.http.post(this.rootUrl+'/login',body,{observe: 'response'});
   }
 
   

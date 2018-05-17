@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpHeaders, HttpClient } from '@angular/common/http';
 
 import { User } from '../shared/user.model';
 
@@ -18,22 +18,28 @@ export class LoginPageComponent implements OnInit {
   isLoginError : boolean =false;
   loading = false;
   
+  
 
-  constructor(private userService: UserService,private router: Router,){}
+  constructor(private userService: UserService,private router: Router, private http :HttpClient){}
     
 
   ngOnInit() {
-    this.user = new User;    
+    this.user = new User;
+
   }
 
   OnSubmit() {
+    
     this.userService.userAuthentication(this.user.email,this.user.password).subscribe((data :any)=>{
-      localStorage.setItem('userToken',data.Authorization);
-      this.router.navigate(['main-page'])
+      localStorage.setItem('WilslackAuthorization',data.headers.get('Authorization'));      
+        
+      this.router.navigate(['chat']);
     },
   (error :HttpErrorResponse)=>{
     this.isLoginError = true;
   });
+  this.http.get('http://178.62.117.198:8080/wildslack/workspace',{headers:{'content-type':'application/json','Authorization':localStorage.getItem('WildslackAuthorization')}});  
+     
   }
         
    
