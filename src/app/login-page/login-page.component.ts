@@ -37,8 +37,7 @@ export class LoginPageComponent implements OnInit {
     },
   (error :HttpErrorResponse)=>{
     this.isLoginError = true;
-  });
-  this.http.get('http://178.62.117.198:8080/wildslack/workspace',{headers:{'content-type':'application/json','Authorization':localStorage.getItem('WildslackAuthorization')}});  
+  });    
      
   }
         
