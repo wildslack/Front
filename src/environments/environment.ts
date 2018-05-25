@@ -4,10 +4,7 @@
 
 export const environment = {
   production: false,  
-  rootUrl : 'http://localhost:8080',
-  registerUrl : this.rootUrl +'/register',
-  loginUrl : this.rootUrl +'/login',
-  getUsersUrl : this.rootUrl + '/api/users',
+  rootUrl : 'http://localhost:8080', 
   
 };
 

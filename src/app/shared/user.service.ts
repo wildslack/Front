@@ -13,7 +13,10 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {  
+export class UserService { 
+  loginUrl = environment.rootUrl+'/login';
+  registerUrl = environment.rootUrl+'/register';
+  getUsersUrl = environment.rootUrl+'/users';
   
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -25,7 +28,7 @@ export class UserService {
       workspaceName: user.workspaceName,
       password: user.password,
     }
-    return this.http.post(environment.registerUrl, body);
+    return this.http.post(this.registerUrl, body);
   }
 
   userAuthentication(email, password) {
@@ -34,11 +37,11 @@ export class UserService {
       password: password,
       
     }
-    return this.http.post(environment.loginUrl, body, { observe: 'response' });
+    return this.http.post(this.loginUrl, body, { observe: 'response' });
   }
 
   getUserClaims() {
-    return this.http.get(environment.getUsersUrl);
+    return this.http.get(this.getUsersUrl);
   }
 
   logOut() {
