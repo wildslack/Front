@@ -15,13 +15,13 @@ import { User } from '../shared/user.model';
 })
 export class LoginPageComponent implements OnInit {
   user: User;
-  isLoginError : boolean =false;
+  isLoginError: boolean = false;
   loading = false;
-  
-  
 
-  constructor(private userService: UserService,private router: Router, private http :HttpClient){}
-    
+
+
+  constructor(private userService: UserService, private router: Router, private http: HttpClient) { }
+
 
   ngOnInit() {
     this.user = new User;
@@ -29,19 +29,19 @@ export class LoginPageComponent implements OnInit {
   }
 
   OnSubmit() {
-    
-    this.userService.userAuthentication(this.user.email,this.user.password).subscribe((data :any)=>{
-      localStorage.setItem('WilslackAuthorization',data.headers.get('Authorization'));      
-        
+
+    this.userService.userAuthentication(this.user.email, this.user.password).subscribe((data: any) => {
+      localStorage.setItem('WildslackAuthorization', data.headers.get('WildslackAuthorization'));
+
       this.router.navigate(['chat']);
     },
-  (error :HttpErrorResponse)=>{
-    this.isLoginError = true;
-  });    
-     
+      (error: HttpErrorResponse) => {
+        this.isLoginError = true;
+      });
+
   }
-        
-   
-  
+
+
+
 
 }
