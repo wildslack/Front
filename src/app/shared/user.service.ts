@@ -11,7 +11,7 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
-  readonly rootUrl = 'http://178.62.117.198:8080/wildslack';
+  readonly rootUrl = 'http://localhost:8080';
   constructor(private http: HttpClient) { }
 
   registerUser(user: User) {
@@ -30,12 +30,12 @@ export class UserService {
       email:email,
       password:password,
     }
-    
+
     var reqHeader = new HttpHeaders({'content-type':'application/json'})
     return this.http.post(this.rootUrl+'/login',body,{headers:reqHeader});
   }
 
-  
+
 
   getUserClaims() {
     return this.http.get(this.rootUrl + '/login');

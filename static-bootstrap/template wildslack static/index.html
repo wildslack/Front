@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildslack - chat room</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+</head>
+
+<body style="padding-bottom:0px;">
+    <div class="visible" id="wrapper" style="background-color:#ffffff;">
+        <div id="sidebar-wrapper" style="background-color:#ffffff;">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand" style="color:#ffffff;">1</li>
+            </ul>
+            <div role="tablist" id="accordion-1" style="background-color:#ffffff;">
+                <div class="card">
+                    <div class="card-header" role="tab" style="background-color:#ffffff;">
+                        <h5 class="mb-1" style="margin-top:10;"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1" href="div#accordion-1 .item-1" class="ws-a" style="margin:19px;/*padding:-5px;*/padding-top:9px;margin-top:62px;margin-bottom:-19px;color:#000000;">Workspace 1</a></h5>
+                    </div>
+                    <div class="collapse item-1" role="tabpanel" data-parent="#accordion-1" style="background-color:initial;">
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href="#">Workspace 1</a></li>
+                                <li class="list-group-item"><a href="#">Workspace 2</a></li>
+                                <li class="list-group-item"><a href="#">Workspace 3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" id="list-channel" style="margin-bottom:40px;background-color:#ffffff;">
+                    <div class="card-header" role="tab" style="background-color:#ffffff;margin-bottom:30px;display:inline-block;"><input type="search" id="search-sidebar" style="/*width:140px;*/"><button class="btn btn-primary" type="button" id="btn-search-sidebar">Search</button>
+                        <h3 class="text-white text-black-50" id="title-channel">Channels</h3>
+                        <h5 class="text-white mb-0" style="margin-top:20px;background-color:#ffffff;"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .item-2" href="div#accordion-1 .item-2" class="channel-title" style="color:#000000;">New Channel&nbsp;</a></h5>
+                    </div>
+                    <div class="collapse show item-2" role="tabpanel" data-parent="#accordion-1" id="new-channel">
+                        <div class="card-body"><label class="label-channel" style="color:#000000;background-color:#ffffff;">Name</label><input type="text" id="input-text-channel"><label class="label-channel" style="color:#000000;margin-top:10px;">Description</label><input type="text"
+                                id="input-text-channel"><button class="btn btn-primary text-right" type="button" style="margin:10px;margin-right:5%;">Create</button></div>
+                    </div>
+                </div>
+            </div>
+            <ul class="list-group" id="list-channels">
+                <li class="list-group-item" style="background-color:initial;padding:0px;padding-left:19px;"><span></span><a href="#" style="color:#000000;"># channel 1</a></li>
+                <li class="list-group-item" style="background-color:inherit;padding:12px;padding-right:0px;padding-top:0px;padding-bottom:0px;padding-left:18px;"><a href="#" style="color:#000000;"># channel 2</a></li>
+                <li class="list-group-item" style="background-color:initial;padding:0px;padding-left:20px;"><a href="#" style="color:#000000;"># channel 3</a></li>
+                <li class="list-group-item" style="background-color:initial;padding-bottom:0px;padding-right:0px;padding-top:0px;"><a href="#" style="color:#000000;"># channel 4</a></li>
+                <li class="list-group-item" style="background-color:initial;padding:0px;padding-left:20px;"></li>
+            </ul>
+            <h5 style="color:#000000;margin-left:20px;margin-top:20px;">Members</h5>
+            <ul style="color:#ffffff;">
+                <li style="color:#000000;">Paul</li>
+                <li style="color:#000000;">Julien</li>
+                <li style="color:#000000;">Bruno</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li style="color:#000000;">Gaëlle</li>
+                <li>Gaëlle</li>
+                <li>Gaëlle</li>
+            </ul>
+        </div>
+        <div class="page-content-wrapper">
+            <div class="container-fluid" style="background-color:#ffffff;"><a class="btn btn-link" role="button" href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars" style="color:#000000;"></i></a><a href="#" class="a-general" style="color:#000000;">#general</a><img src="assets/img/logoRC.png" class="img-header xs-2">
+                <div
+                    class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="menu-member" style="margin-top:0px;margin-left:0px;padding-left:12px;">Stephen&nbsp;</button>
+                    <div class="dropdown-menu" role="menu"
+                        style="width:120px;"><a class="dropdown-item" role="presentation" href="#"></a><a class="dropdown-item" role="presentation" href="#">Profil</a><a class="dropdown-item" role="presentation" href="#">Logout</a></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="newsletter-subscribe">
+        <div class="container" style="max-width:100%;">
+            <form class="form-inline" method="post" style="width:100%;">
+                <div class="form-group" id="your-message"><textarea class="form-control" style="width:100%;" placeholder="Your message"></textarea></div>
+                <div class="form-group"><button class="btn btn-primary" type="submit" id="send-message">Send</button></div>
+            </form>
+        </div>
+    </div>
+    <div></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
+</body>
+
+</html>
