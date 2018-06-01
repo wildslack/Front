@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import SweetScroll from 'sweet-scroll';
 import { User } from '../shared/user.model';
+import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 
 
@@ -13,17 +15,20 @@ export class HeaderComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private router: Router) { }
+  navBarState = false;
 
   ngOnInit() {
+    this.navBarremovingItems();
     (function ($) {
-      "use strict"; // Start of use strict        
+      'use strict'; // Start of use strict
       // Collapse Navbar
-      var navbarCollapse = function () {
-        if ($("#mainNav").offset().top > 100) {
-          $("#mainNav").addClass("navbar-shrink");
+      // tslint:disable-next-line:prefer-const
+      let navbarCollapse = function () {
+        if ($('#mainNav').offset().top > 100) {
+          $('#mainNav').addClass('navbar-shrink');
         } else {
-          $("#mainNav").removeClass("navbar-shrink");
+          $('#mainNav').removeClass('navbar-shrink');
         }
       };
 
@@ -31,10 +36,11 @@ export class HeaderComponent implements OnInit {
       navbarCollapse();
       // Collapse the navbar when page is scrolled
       $(window).scroll(navbarCollapse);
-    })(jQuery); // End of use strict 
+    })(jQuery); // End of use strict
 
     // Closes responsive menu when a scroll trigger link is clicked
     $('.js-scroll-trigger').click(function () {
+      // tslint:disable-next-line:no-unused-expression
       $('.navbar-collapse').hide;
     });
 
@@ -45,7 +51,11 @@ export class HeaderComponent implements OnInit {
 
   }
 
-
-
+  navBarremovingItems() {
+    const currentUrl = this.router.url;
+    if (currentUrl === '/' || currentUrl === '/#page-top') {
+      this.navBarState = true;
+    }
+  }
 
 }

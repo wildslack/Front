@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Response } from "@angular/http";
+import { Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { User } from './user.model';
@@ -13,11 +13,11 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService { 
-  loginUrl = environment.rootUrl+'/login';
-  registerUrl = environment.rootUrl+'/register';
-  getUsersUrl = environment.rootUrl+'/users';
-  
+export class UserService {
+  loginUrl = environment.rootUrl + '/login';
+  registerUrl = environment.rootUrl + '/register';
+  getUsersUrl = environment.rootUrl + '/users';
+
   constructor(private http: HttpClient, private router: Router) { }
 
   registerUser(user: User) {
@@ -27,7 +27,7 @@ export class UserService {
       nickname: user.nickname,
       workspaceName: user.workspaceName,
       password: user.password,
-    }
+    };
     return this.http.post(this.registerUrl, body);
   }
 
@@ -35,8 +35,8 @@ export class UserService {
     const body = {
       email: email,
       password: password,
-      
-    }
+
+    };
     return this.http.post(this.loginUrl, body, { observe: 'response' });
   }
 
@@ -46,8 +46,8 @@ export class UserService {
 
   logOut() {
 
-    localStorage.removeItem('WildslackAuthorization')
-    this.router.navigate(['landing-page'])
+    localStorage.removeItem('WildslackAuthorization');
+    this.router.navigate(['landing-page']);
   }
 
 }

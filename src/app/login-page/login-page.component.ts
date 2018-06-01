@@ -15,7 +15,7 @@ import { User } from '../shared/user.model';
 })
 export class LoginPageComponent implements OnInit {
   user: User;
-  isLoginError: boolean = false;
+  isLoginError = false;
   loading = false;
 
 

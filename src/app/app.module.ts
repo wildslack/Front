@@ -14,17 +14,18 @@ import { FormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
 
 
+
+
   ],
   imports: [
-
     BrowserModule,
     AppRoutingModule,
-    HeaderModule,
     MainPageModule,
     LandingPageModule,
     RegisterModule,

@@ -1,10 +1,10 @@
 export class User {
-    id:number;
-    email:string;
-    password:string;
-    nickname:string;
-    workspaceName:string;
+  id: number;
+  email: string;
+  password: string;
+  nickname: string;
+  workspaceName: string;
 
-    constructor(){}
+  constructor() { }
 }
- 
+

@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'main-page', component: MainPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: '', component: LandingPageComponent },
-  { path: 'chat', component: ChatComponent }
+  { path: 'chat', component: ChatComponent },
+  { path: '', component: LandingPageComponent }
 
 ];
 

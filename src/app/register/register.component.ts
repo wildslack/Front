@@ -17,6 +17,7 @@ export class RegisterComponent {
 
   constructor(private userService: UserService, private router: Router) { }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
     this.resetForm();
     this.onload();
@@ -24,38 +25,40 @@ export class RegisterComponent {
 
   }
   resetForm(form?: NgForm) {
-    if (form != null)
+    if (form != null) {
       form.reset();
+    }
     this.user = {
       id: 0,
       email: '',
       nickname: '',
       password: '',
       workspaceName: '',
-    }
+    };
   }
 
   OnSubmit(form: NgForm) {
     this.userService.registerUser(form.value, ).subscribe((data: any) => {
       this.router.navigate(['/welcome']);
-      if (data.Succeeded == true) {
+      if (data.Succeeded === true) {
         this.resetForm(form);
       }
-    })
+    });
   }
 
   onload = function () {
-    document.getElementById("password").onchange = this.validatePassword;
-    document.getElementById("repassword").onchange = this.validatePassword;
-  }
+    document.getElementById('password').onchange = this.validatePassword;
+    document.getElementById('repassword').onchange = this.validatePassword;
+  };
   validatePassword = function () {
-    var password = (<HTMLInputElement>document.getElementById('password')).value;
-    var repeatPassword = (<HTMLInputElement>document.getElementById('repassword')).value;
-    if (password != repeatPassword)
-      var resultat = (<HTMLInputElement>document.getElementById("repassword")).setCustomValidity("Passwords Don't Match");
-    else
-      var resultat = (<HTMLInputElement>document.getElementById("repassword")).setCustomValidity("");
+    const password = (<HTMLInputElement>document.getElementById('password')).value;
+    const repeatPassword = (<HTMLInputElement>document.getElementById('repassword')).value;
+    if (password !== repeatPassword) {
+      const resultat = (<HTMLInputElement>document.getElementById('repassword')).setCustomValidity('Passwords Don\'t Match');
+    } else {
+      const resultat = (<HTMLInputElement>document.getElementById('repassword')).setCustomValidity('');
+    }
 
-  }
+  };
 
 }
