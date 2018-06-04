@@ -8,6 +8,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ChatComponent } from './main-page/chat/chat.component';
+import { DiscussionComponent } from './main-page/discussion/discussion.component';
 
 
 
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: '', component: LandingPageComponent },
   { path: 'chat', component: ChatComponent },
-
+  { path: 'discussion', component: DiscussionComponent }
 
 ];
 

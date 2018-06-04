@@ -4,6 +4,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { MainPageComponent } from './main-page.component';
 import { RouterModule } from '@angular/router';
 import { ChatComponent } from './chat/chat.component';
+import { DiscussionComponent } from './discussion/discussion.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import { ChatComponent } from './chat/chat.component';
     RouterModule
 
   ],
-  declarations: [WelcomeComponent, MainPageComponent, ChatComponent],
+  declarations: [WelcomeComponent, MainPageComponent, ChatComponent, DiscussionComponent],
   exports: [WelcomeComponent, MainPageComponent, ChatComponent],
 })
 export class MainPageModule { }
