@@ -2,11 +2,6 @@ body {
   overflow-x:hidden;
 }
 
-#wrapper #sidebarwrapper .sidebar-brand .card-header {
-  background-color:#ffffff;
-
-}
-
 #wrapper {
   padding-left:0;
   -webkit-transition:all 0.5s ease;

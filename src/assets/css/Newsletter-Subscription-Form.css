@@ -49,7 +49,6 @@
   height:45px;
   margin-right:10px;
   width:350px;
-  width:100%
 }
 
 .newsletter-subscribe form .btn {
@@ -222,16 +221,4 @@ body {
     margin-left:25%;
   }
 }
-
-.container{
-  max-width:100%;
-}
-
-.form-inline{
-  width:100%;
-}
-
-
-
-
 
