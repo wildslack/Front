@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: '', component: LandingPageComponent },
   { path: 'chat', component: ChatComponent },
-  { path: '', component: LandingPageComponent }
+
 
 ];
 
