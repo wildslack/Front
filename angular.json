@@ -29,11 +29,14 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": ["node_modules/jquery/dist/jquery.min.js",
-                        "node_modules/bootstrap/dist/js/bootstrap.js",
-                        "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
-                        "src/assets/js/new-age.min.js",
-                        "src/assets/vendor/jquery-easing/jquery.easing.min.js"        
+            "scripts": [
+              "node_modules/jquery/dist/jquery.slim.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "src/assets/js/new-age.min.js",
+              "src/assets/vendor/jquery-easing/jquery.easing.min.js"
+
+
             ]
           },
           "configurations": {
@@ -83,11 +86,13 @@
             "styles": [
               "styles.scss"
             ],
-            "scripts": ["node_modules/jquery/dist/jquery.min.js",
-                        "node_modules/bootstrap/dist/js/bootstrap.js",
-                        "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
-                        "src/assets/js/new-age.min.js",
-                        "src/assets/vendor/jquery-easing/jquery.easing.min.js"],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "src/assets/js/new-age.min.js",
+              "src/assets/vendor/jquery-easing/jquery.easing.min.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

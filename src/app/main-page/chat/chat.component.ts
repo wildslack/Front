@@ -11,6 +11,10 @@ export class ChatComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    $('#menu-toggle').click(function(e) {
+      e.preventDefault();
+      $('#wrapper').toggleClass('toggled');
+  });
 
   }
 
