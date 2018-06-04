@@ -5,15 +5,21 @@ import { MainPageComponent } from './main-page.component';
 import { RouterModule } from '@angular/router';
 import { ChatComponent } from './chat/chat.component';
 import { DiscussionComponent } from './discussion/discussion.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidePannelComponent } from './side-pannel/side-pannel.component';
+import { SeizureComponent } from './seizure/seizure.component';
 
 @NgModule({
   imports: [
     CommonModule,
-
     RouterModule
 
   ],
-  declarations: [WelcomeComponent, MainPageComponent, ChatComponent, DiscussionComponent],
-  exports: [WelcomeComponent, MainPageComponent, ChatComponent],
+
+  declarations: [WelcomeComponent, MainPageComponent, ChatComponent
+    , NavbarComponent, SidePannelComponent, SeizureComponent, DiscussionComponent],
+  exports: [WelcomeComponent, MainPageComponent
+    , ChatComponent, NavbarComponent, SidePannelComponent, SeizureComponent, DiscussionComponent],
+
 })
 export class MainPageModule { }
