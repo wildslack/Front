@@ -10,12 +10,14 @@ import { SidePannelComponent } from './side-pannel/side-pannel.component';
 import { SeizureComponent } from './seizure/seizure.component';
 import { WorkspacesPanelComponent } from './workspaces-panel/workspaces-panel.component';
 import { ChannelsPanelComponent } from './channels-panel/channels-panel.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
-
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
 
   declarations: [WelcomeComponent, MainPageComponent, ChatComponent, SidePannelComponent
