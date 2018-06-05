@@ -8,6 +8,8 @@ import { DiscussionComponent } from './discussion/discussion.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidePannelComponent } from './side-pannel/side-pannel.component';
 import { SeizureComponent } from './seizure/seizure.component';
+import { WorkspacesPanelComponent } from './workspaces-panel/workspaces-panel.component';
+import { ChannelsPanelComponent } from './channels-panel/channels-panel.component';
 
 @NgModule({
   imports: [
@@ -16,10 +18,11 @@ import { SeizureComponent } from './seizure/seizure.component';
 
   ],
 
-  declarations: [WelcomeComponent, MainPageComponent, ChatComponent
-    , NavbarComponent, SidePannelComponent, SeizureComponent, DiscussionComponent],
+  declarations: [WelcomeComponent, MainPageComponent, ChatComponent, SidePannelComponent
+    , NavbarComponent, SeizureComponent, DiscussionComponent, WorkspacesPanelComponent, ChannelsPanelComponent],
   exports: [WelcomeComponent, MainPageComponent
-    , ChatComponent, NavbarComponent, SidePannelComponent, SeizureComponent, DiscussionComponent],
+    , ChatComponent, NavbarComponent, SeizureComponent, DiscussionComponent,
+    WorkspacesPanelComponent, ChannelsPanelComponent, SidePannelComponent],
 
 })
 export class MainPageModule { }
