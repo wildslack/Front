@@ -33,7 +33,7 @@ export class LoginPageComponent implements OnInit {
     this.userService.userAuthentication(this.user.email, this.user.password).subscribe((data: any) => {
       localStorage.setItem('WildslackAuthorization', data.headers.get('WildslackAuthorization'));
 
-      this.router.navigate(['chat']);
+      this.router.navigate(['main-page']);
     },
       (error: HttpErrorResponse) => {
         this.isLoginError = true;
