@@ -18,9 +18,14 @@ export class ChannelService {
     return this.http.get<Channel[]>(channelsUrl, customHeader);
   }
 
-  findMessages(channelId: number): Observable<Message[]> {
+  findMessages(channelId: number, idMessage: number): Observable<Message[]> {
     const customHeader = this.baseService.buildHttpHeader();
-    const messagesUrl = environment.rootUrl + '/api/channels/' + channelId + '/messages';
+    let messagesUrl;
+    if (idMessage === undefined) {
+     messagesUrl = environment.rootUrl + '/api/channels/' + channelId + '/messages';
+    } else {
+     messagesUrl = environment.rootUrl + '/api/channels/' + channelId + '/messages?startmessageindex=' + idMessage ;
+    }
     return this.http.get<Message[]>(messagesUrl, customHeader);
   }
 
