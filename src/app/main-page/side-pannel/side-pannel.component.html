@@ -3,14 +3,8 @@
       <li class="sidebar-brand">1</li>
   </ul>
   <div role="tablist" id="accordion-1">
-  <app-workspaces-panel></app-workspaces-panel>
-  <app-channels-panel></app-channels-panel>
+  <app-workspaces-panel [lastWorkspace$]="lastWorkspace$"></app-workspaces-panel>
+  <app-channels-panel [workspace$]="lastWorkspace$" [lastChannel$]="lastChannel$" ></app-channels-panel>
   </div>
-  <ul class="list-group" id="list-channels">
-      <li class="list-group-item"><span></span><a href="#"># channel 1</a></li>
-  </ul>
-  <h5 >Members</h5>
-  <ul class="list-membre">
-      <li class="members">Paul</li>
-  </ul>
+  <app-member-list [channel$]="lastChannel$" ></app-member-list>
 </div>

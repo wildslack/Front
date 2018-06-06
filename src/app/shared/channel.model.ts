@@ -1,5 +1,5 @@
 export class Channel {
-  id: number;
+  idChannel: number;
   name: string;
   description: string;
   workspaceId: string;

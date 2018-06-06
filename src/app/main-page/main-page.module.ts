@@ -10,7 +10,9 @@ import { SidePannelComponent } from './side-pannel/side-pannel.component';
 import { SeizureComponent } from './seizure/seizure.component';
 import { WorkspacesPanelComponent } from './workspaces-panel/workspaces-panel.component';
 import { ChannelsPanelComponent } from './channels-panel/channels-panel.component';
+import { MemberListComponent } from './member-list/member-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
@@ -21,10 +23,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
 
   declarations: [WelcomeComponent, MainPageComponent, ChatComponent, SidePannelComponent
-    , NavbarComponent, SeizureComponent, DiscussionComponent, WorkspacesPanelComponent, ChannelsPanelComponent],
+    , NavbarComponent, SeizureComponent, DiscussionComponent, WorkspacesPanelComponent, ChannelsPanelComponent, MemberListComponent],
   exports: [WelcomeComponent, MainPageComponent
     , ChatComponent, NavbarComponent, SeizureComponent, DiscussionComponent,
-    WorkspacesPanelComponent, ChannelsPanelComponent, SidePannelComponent],
+    WorkspacesPanelComponent, ChannelsPanelComponent, SidePannelComponent, MemberListComponent],
 
 })
 export class MainPageModule { }
