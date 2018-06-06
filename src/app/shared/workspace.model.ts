@@ -1,5 +1,5 @@
 export class Workspace {
-  id: number;
+  idWorkspace: number;
   name: string;
   description: string;
   constructor() {}
