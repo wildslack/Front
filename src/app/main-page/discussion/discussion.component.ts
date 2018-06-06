@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
 import { MessageService } from '../../shared/message.service';
 import { Message } from 'src/app/shared/message.model';
 import {
@@ -15,39 +15,46 @@ import {
   templateUrl: './discussion.component.html',
   styleUrls: ['./discussion.component.scss']
 })
-export class DiscussionComponent implements OnInit {
+export class DiscussionComponent implements OnInit, AfterViewChecked {
 
   public messages: Array<Message>;
   msgToSend: string;
+
+  @ViewChild('messagescontainer') private messagesDiv: ElementRef;
+
 
   constructor(private messageService: MessageService) {
     this.messages = [
       Message.create(78, 'How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!', '2', '1'),
       Message.create(79, 'When youre backed against the wall, break the god damn thing down', '2', '1')
     ];
+    this.scrollToBottom();
   }
 
   ngOnInit() {
+    // receive messages
     this.messageService.messages.subscribe(msg => {
       console.log('Response from websocket: ' + msg.message);
-      this.messages.push(Message.create(79, msg.message, '2', '1'));
+      this.messages.push(msg);
     });
   }
 
 
-  // public sendMsg() {
-  //   const message = {
-  //     author: 'tutorialedge',
-  //     message: 'this is a test message'
-  //   };
-
-  //   this.messageService.messages.next(message);
-  // }
-
-
-  public sendMessage() {
+  sendMessage() {
     this.messageService.messages.next(Message.create(null, this.msgToSend, '2', '1'));
     this.msgToSend = '';
   }
+
+  ngAfterViewChecked(): void {
+    this.scrollToBottom();
+  }
+
+  scrollToBottom(): void {
+    try {
+        this.messagesDiv.nativeElement.scrollTop = this.messagesDiv.nativeElement.scrollHeight;
+    } catch (err) { }
+  }
+
+
 
 }
