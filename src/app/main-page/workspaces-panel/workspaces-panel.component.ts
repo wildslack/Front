@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { WorkspaceService } from '../../shared/workspace.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../shared/user.model';
 import { Workspace } from '../../shared/workspace.model';
+import { Observable, of } from 'rxjs';
+
 
 @Component({
   selector: 'app-workspaces-panel',
@@ -14,18 +16,20 @@ import { Workspace } from '../../shared/workspace.model';
 export class WorkspacesPanelComponent implements OnInit {
   userId = 1;
   public workspaces: Workspace[];
-  public lastWorkspace: Workspace;
-  constructor(private workspaceService: WorkspaceService, private httpClient: HttpClient) { }
+  @Input() lastWorkspace$: Observable<Workspace>;
+  constructor(private workspaceService: WorkspaceService, private httpClient: HttpClient) {
+
+  }
 
 
   ngOnInit() {
+    this.getAllWorkspaces();
+  }
 
-    this.workspaceService.findAll(this.userId).subscribe((workspaces: Workspace[]) => {
-      this.workspaces = workspaces; });
 
-    this.workspaceService.findLast(this.userId).subscribe((lastWorkspace: Workspace) => {
-      this.lastWorkspace = lastWorkspace; });
-
+    getAllWorkspaces() {
+      this.workspaceService.findAll(this.userId).subscribe((workspaces: Workspace[]) => {
+        this.workspaces = workspaces; });
     }
 
 
