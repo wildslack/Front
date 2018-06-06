@@ -9,7 +9,7 @@
   </div>
 </div>
 <ul class="list-group" id="list-channels">
-  <li *ngFor="let channel of channels" class="list-group-item"><span></span><a href="#">{{channel.name}}</a></li>
+  <li *ngFor="let channel of channels" (click)="SwitchChannel(channel)" class="list-group-item"><span></span><a>{{channel.name}}</a></li>
 </ul>
 
 
