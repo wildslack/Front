@@ -42,7 +42,7 @@ idUser = 1;
 
   }
 
-  SwitchChannel(channel: Observable<Channel>) {
+  switchChannel(channel: Observable<Channel>) {
     console.log(channel);
     return channel;
     }
