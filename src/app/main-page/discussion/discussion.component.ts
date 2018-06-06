@@ -32,7 +32,7 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
-    // receive messages
+    // listent/receive messages
     this.messageService.messages.subscribe(msg => {
       console.log('Response from websocket: ' + msg.message);
       this.messages.push(msg);
