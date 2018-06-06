@@ -13,6 +13,7 @@ import { ChannelsPanelComponent } from './channels-panel/channels-panel.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MemberListComponent } from './member-list/member-list.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
