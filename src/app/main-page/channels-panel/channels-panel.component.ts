@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {WorkspacesPanelComponent} from '../workspaces-panel/workspaces-panel.component';
+import { Workspace } from '../../shared/workspace.model';
+import { WorkspaceService } from '../../shared/workspace.service';
+import { HttpClient } from '@angular/common/http';
+import { ChannelService } from '../../shared/channel.service';
+import { Channel } from '../../shared/channel.model';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-channels-panel',
@@ -6,10 +13,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./channels-panel.component.scss']
 })
 export class ChannelsPanelComponent implements OnInit {
+@Input() workspace$: Observable<Workspace>;
+channel$: Observable<Channel>;
+@Input() lastChannel$: Observable<Channel>;
+idUser = 1;
 
-  constructor() { }
+  public  channels: Channel[];
+  constructor(private channelService: ChannelService, private httpClient: HttpClient) {
+  }
+
+
+
 
   ngOnInit() {
+    this.getChannelsbyWorkspaces();
   }
+
+  getChannelsbyWorkspaces() {
+    this.workspace$.subscribe(workspace =>
+      this.loadChannels(workspace)
+    );
+  }
+
+
+  public loadChannels(workspace: Workspace) {
+    this.channelService.findByWorkspace(workspace.idWorkspace).subscribe((channels: Channel[]) =>
+    this.channels = channels);
+
+  }
+
+  SwitchChannel(channel: Observable<Channel>) {
+    console.log(channel);
+    return channel;
+    }
 
 }

@@ -1,6 +1,6 @@
 <div class="card" id="list-channel">
   <div class="card-header" role="tab" ><input type="search" id="search-sidebar"><button class="btn btn-primary" type="button" id="btn-search-sidebar">Search</button>
-      <h3 class="text-white text-black-50" id="title-channel">Channels</h3>
+      <h3  *ngIf="lastChannel$ | async as channel" class="text-white text-black-50" id="title-channel">{{channel.name}}</h3>
       <h5 class="text-white mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .item-2" href="div#accordion-1 .item-2" class="channel-title" >New Channel&nbsp;</a></h5>
   </div>
   <div class="collapse show item-2" role="tabpanel" data-parent="#accordion-1" id="new-channel">
@@ -8,3 +8,8 @@
               id="input-text-channel"><button class="btn btn-primary text-right" type="button">Create</button></div>
   </div>
 </div>
+<ul class="list-group" id="list-channels">
+  <li *ngFor="let channel of channels" (click)="SwitchChannel(channel)" class="list-group-item"><span></span><a>{{channel.name}}</a></li>
+</ul>
+
+

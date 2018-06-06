@@ -1,11 +1,12 @@
-<div class="card">
+<div class="card" *ngIf="lastWorkspace$ | async as lastWorkspace">
   <div class="card-header" role="tab">
-      <h5 class="mb-1" style="margin-top:10;"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1" href="div#accordion-1 .item-1" class="ws-a" >Workspace 1</a></h5>
-  </div>
+      <h5 *ngIf="lastWorkspace.name != null" class="mb-1" style="margin-top:10;"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1" href="div#accordion-1 .item-1" class="ws-a" >{{lastWorkspace.name}}</a></h5>
+      <h5 *ngIf="lastWorkspace.name == null " class="mb-1" style="margin-top:10;"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1" href="div#accordion-1 .item-1" class="ws-a" >LOADING</a></h5>
+    </div>
   <div class="collapse item-1" role="tabpanel" data-parent="#accordion-1">
       <div class="card-body">
           <ul class="list-group">
-              <li class="list-group-item"><a href="#">Workspace 1</a></li>
+              <li *ngFor="let workspace of workspaces" class="list-group-item"><a href="#">{{workspace.name}}</a></li>
           </ul>
       </div>
   </div>

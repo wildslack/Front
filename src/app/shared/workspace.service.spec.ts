@@ -15,7 +15,6 @@ describe('WorkspaceService', () => {
   it('should be created', inject([WorkspaceService], (wkService: WorkspaceService) => {
     expect(wkService).toBeTruthy();
 
-    
 
   }));
 });
