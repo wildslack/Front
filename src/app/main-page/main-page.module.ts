@@ -11,12 +11,15 @@ import { SeizureComponent } from './seizure/seizure.component';
 import { WorkspacesPanelComponent } from './workspaces-panel/workspaces-panel.component';
 import { ChannelsPanelComponent } from './channels-panel/channels-panel.component';
 import { MemberListComponent } from './member-list/member-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
-
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
 
   declarations: [WelcomeComponent, MainPageComponent, ChatComponent, SidePannelComponent
