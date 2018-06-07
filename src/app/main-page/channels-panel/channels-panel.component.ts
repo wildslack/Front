@@ -22,9 +22,6 @@ idUser = 1;
   constructor(private channelService: ChannelService, private httpClient: HttpClient) {
   }
 
-
-
-
   ngOnInit() {
     this.getChannelsbyWorkspaces();
   }
@@ -42,9 +39,9 @@ idUser = 1;
 
   }
 
-  SwitchChannel(channel: Observable<Channel>) {
-    console.log(channel);
-    return channel;
+  switchChannel(channel: Channel) {
+    this.channelService.updateCurrentChan(channel);
+    return this.channelService.getCurrentChannel();
     }
 
 }
