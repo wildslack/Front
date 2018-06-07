@@ -19,6 +19,7 @@ export class SidePannelComponent implements OnInit {
   ngOnInit() {
     this.lastWorkspace$ = this.getLastWorkspace();
     this.lastChannel$ = this.getLastChannel();
+
   }
 
   getLastWorkspace() {
@@ -26,11 +27,8 @@ export class SidePannelComponent implements OnInit {
 
   }
 
-
   public getLastChannel() {
    return this.channelService.findLast(this.userId);
   }
-
-
 
 }
