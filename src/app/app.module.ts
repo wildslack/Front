@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { ChannelService } from './shared/channel.service';
 import { WorkspaceService } from './shared/workspace.service';
 import { BaseService } from './shared/base.service';
+import { MessageService } from './shared/message.service';
+import { WebsocketService } from './shared/websocket.service';
 
 
 
@@ -37,7 +39,7 @@ import { BaseService } from './shared/base.service';
     LoginPageModule,
     FormsModule
   ],
-  providers: [UserService,ChannelService, WorkspaceService, BaseService],
+  providers: [UserService, ChannelService, WorkspaceService, BaseService, MessageService, WebsocketService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
