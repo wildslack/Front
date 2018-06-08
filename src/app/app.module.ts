@@ -16,6 +16,7 @@ import { BaseService } from './shared/base.service';
 import { MessageService } from './shared/message.service';
 import { WebsocketService } from './shared/websocket.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 
 
@@ -39,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterModule,
     LoginPageModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule,
   ],
   providers: [UserService, ChannelService, WorkspaceService, BaseService, MessageService, WebsocketService],
   bootstrap: [AppComponent]
