@@ -10,6 +10,9 @@ import { RegisterModule } from './register/register.module';
 import { LoginPageModule } from './login-page/login-page.module';
 import { UserService } from './shared/user.service';
 import { FormsModule } from '@angular/forms';
+import { ChannelService } from './shared/channel.service';
+import { WorkspaceService } from './shared/workspace.service';
+import { BaseService } from './shared/base.service';
 
 
 
@@ -34,7 +37,7 @@ import { FormsModule } from '@angular/forms';
     LoginPageModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService,ChannelService, WorkspaceService, BaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
