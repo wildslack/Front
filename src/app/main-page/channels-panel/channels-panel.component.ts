@@ -8,6 +8,7 @@ import { Channel } from '../../shared/channel.model';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import {BaseService} from "../../shared/base.service";
 
 @Component({
   selector: 'app-channels-panel',
@@ -22,7 +23,7 @@ idUser = 1;
 channel: Channel;
 
   public  channels: Channel[];
-  constructor(private channelService: ChannelService, private httpClient: HttpClient, private router: Router) {
+  constructor(private channelService: ChannelService,private baseService: BaseService, private httpClient: HttpClient, private router: Router) {
   }
 
   ngOnInit() {
@@ -47,9 +48,9 @@ channel: Channel;
     return this.channelService.getCurrentChannel();
     }
 
- OnSubmit() {
+ onSubmit() {
     this.channelService.newChannel(this.channel.name, this.channel.description).subscribe((data:any) => {
-      localStorage.setItem('WildslackAuthorization', data.headers.get('WildslackAuthorization'));
+      this.baseService.buildHttpHeader();
       this.router.navigate(['main-page']);
       });
  }

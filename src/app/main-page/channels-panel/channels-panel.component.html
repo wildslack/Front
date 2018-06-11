@@ -4,7 +4,7 @@
       <h5 class="text-white mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .item-2" href="div#accordion-1 .item-2" class="channel-title" >New Channel&nbsp;</a></h5>
   </div>
   <form ngNativeValidate class="collapse show item-2" role="tabpanel" data-parent="#accordion-1" id="new-channel"
-        #newChannelForm="ngForm"   (ngSubmit)="OnSubmit()" >
+        #newChannelForm="ngForm"   (ngSubmit)="onSubmit()" >
       <div class="card-body">
         <label class="label-channel" >Name</label>
         <input type="text" id="input-text-channel" name="name" #name [(ngModel)]="channel.name">
