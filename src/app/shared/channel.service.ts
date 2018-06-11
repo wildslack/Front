@@ -31,12 +31,16 @@ export class ChannelService {
   findMessages(channelId: number, idMessage): Observable<Message[]> {
     const customHeader = this.baseService.buildHttpHeader();
     let messagesUrl;
-    if (idMessage === undefined || idMessage === 0) {
+    if (idMessage === undefined || idMessage === 0 || !idMessage) {
      messagesUrl = environment.rootUrl + '/api/channels/' + channelId + '/messages';
     } else {
      messagesUrl = environment.rootUrl + '/api/channels/' + channelId + '/messages?startmessageindex=' + idMessage ;
     }
     return this.http.get<Message[]>(messagesUrl, customHeader);
+  }
+
+  findLastMessages(channelId: number): Observable<Message[]> {
+    return this.findMessages(channelId, undefined);
   }
 
   post(message: Message) {

@@ -34,13 +34,13 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
 
     this.scrollToBottom();
 
-    this.channelService.findMessages(1).subscribe(msgs =>
+    this.channelService.findLastMessages(1).subscribe(msgs =>
       this.messages = msgs
     );
   }
 
   ngOnInit() {
-    // listent/receive messages
+    // listen/receive messages
     this.messageService.messages.subscribe(msg => {
       console.log('Response from websocket: ' + msg.message);
       this.messages.push(msg);
