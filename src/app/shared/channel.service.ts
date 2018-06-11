@@ -20,7 +20,7 @@ export class ChannelService {
   protected currentChannel$: BehaviorSubject<Channel> = new BehaviorSubject<Channel>(this.currentChannel);
 
   constructor(private http: HttpClient, private baseService: BaseService) { }
-
+ channelUrl = environment.rootUrl + '/api/channels/create';
 
   findByWorkspace(workspaceId: number): Observable<Channel[]> {
     const customHeader = this.baseService.buildHttpHeader();
@@ -59,6 +59,14 @@ export class ChannelService {
   getCurrentChannel(): Observable<Channel> {
     return this.currentChannel$;
   }
+newChannel(name, description) {
+  const body = {
+      name: name,
+      description: description
+    };
+
+  return this.http.post(this.channelUrl, body, {observe: 'response'});
+}
 
 }
 

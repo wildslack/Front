@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
 import { ChannelService } from '../../shared/channel.service';
 import { Channel } from '../../shared/channel.model';
 import { Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-channels-panel',
@@ -17,13 +19,15 @@ export class ChannelsPanelComponent implements OnInit {
 channel$: Observable<Channel>;
 @Input() lastChannel$: Observable<Channel>;
 idUser = 1;
+channel: Channel;
 
   public  channels: Channel[];
-  constructor(private channelService: ChannelService, private httpClient: HttpClient) {
+  constructor(private channelService: ChannelService, private httpClient: HttpClient, private router: Router) {
   }
 
   ngOnInit() {
     this.getChannelsbyWorkspaces();
+    this.channel = new Channel;
   }
 
   getChannelsbyWorkspaces() {
@@ -36,12 +40,18 @@ idUser = 1;
   public loadChannels(workspace: Workspace) {
     this.channelService.findByWorkspace(workspace.idWorkspace).subscribe((channels: Channel[]) =>
     this.channels = channels);
-
   }
 
   switchChannel(channel: Channel) {
     this.channelService.updateCurrentChan(channel);
     return this.channelService.getCurrentChannel();
     }
+
+ OnSubmit() {
+    this.channelService.newChannel(this.channel.name, this.channel.description).subscribe((data:any) => {
+      localStorage.setItem('WildslackAuthorization', data.headers.get('WildslackAuthorization'));
+      this.router.navigate(['main-page']);
+      });
+ }
 
 }
