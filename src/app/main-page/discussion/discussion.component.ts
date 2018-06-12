@@ -28,8 +28,8 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
 
   constructor(private messageService: MessageService, private channelService: ChannelService) {
     this.messages = [
-      Message.create(78, 'How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!', '2', '1'),
-      Message.create(79, 'When youre backed against the wall, break the god damn thing down', '2', '1')
+      // Message.create(78, 'How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!', '2', '1'),
+      // Message.create(79, 'When youre backed against the wall, break the god damn thing down', '2', '1')
     ];
 
     this.scrollToBottom();
@@ -41,15 +41,19 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     // listen/receive messages
-    this.messageService.messages.subscribe(msg => {
-      console.log('Response from websocket: ' + msg.message);
-      this.messages.push(msg);
-    });
+    // this.messageService.messages.subscribe(msg => {
+    //   console.log('Response from websocket: ' + msg.message);
+    //   this.messages.push(msg);
+    // });
+
+
+     this.messageService.follow('1');
   }
 
 
   sendMessage() {
-    this.messageService.messages.next(Message.create(null, this.msgToSend, '2', '1'));
+    // this.messageService.messages.next(Message.create(null, this.msgToSend, '2', '1'));
+    this.messageService.sendMessage(Message.create(null, this.msgToSend, '2', '1'));
     this.msgToSend = '';
   }
 
