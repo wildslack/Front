@@ -41,6 +41,7 @@ idUser = 1;
 
   switchChannel(channel: Channel) {
     this.channelService.updateCurrentChan(channel);
+    console.log(channel);
     return this.channelService.getCurrentChannel();
     }
 
