@@ -16,30 +16,27 @@
   <div class="card-header">
     <div class="container">
       <div class="row">
-
-          <h5>Channels</h5>
-          <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1"
-            href="div#accordion-1 .item-2">+</button>
-
-            <h6 *ngIf="lastChannel$ | async as channel">{{channel.name}}</h6>
-
+        <h5>Channels</h5>
+        <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1"
+          href="div#accordion-1 .item-2">+</button>
       </div>
+
+
     </div>
   </div>
   <div class="card-body">
-      <div class="collapse item-2" role="tabpanel" data-parent="#accordion-1" id="new-channel">
-          <div class="card-body">
-            <label class="label-channel">Name</label>
-            <input type="text" id="input-text-channel">
-            <label>Description</label>
-            <input type="text" id="input-text-channel">
-            <button class="btn btn-primary text-right" type="button">Create</button>
-          </div>
-        </div>
+    <div class="collapse item-2" role="tabpanel" data-parent="#accordion-1" id="new-channel">
+      <label class="label-channel">Name</label>
+      <input type="text" id="input-text-channel">
+      <label>Description</label>
+      <input type="text" id="input-text-channel">
+      <button class="btn btn-primary text-right" type="button">Create</button>
+    </div>
+    <h6 *ngIf="lastChannel$ | async as channel">{{channel.name}}</h6>
     <div class="container">
       <div class="row" *ngFor="let channel of channels" (click)="switchChannel(channel)">
         <div class="col">
-          <button class="btn btn-secondary" >{{channel.name}}</button>
+          <button class="btn btn-secondary">{{channel.name}}</button>
         </div>
       </div>
     </div>

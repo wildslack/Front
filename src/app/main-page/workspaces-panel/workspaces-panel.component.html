@@ -5,7 +5,7 @@
   <div class="collapse item-1" role="tabpanel" data-parent="#accordion-1">
       <div class="card-body">
           <ul class="list-group">
-              <li *ngFor="let workspace of workspaces" class="list-group-item"><a href="#">{{workspace.name}}</a></li>
+              <button class="btn btn-secondary" *ngFor="let workspace of workspaces">{{workspace.name}}</button>
           </ul>
       </div>
   </div>
