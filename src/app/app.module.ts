@@ -10,6 +10,13 @@ import { RegisterModule } from './register/register.module';
 import { LoginPageModule } from './login-page/login-page.module';
 import { UserService } from './shared/user.service';
 import { FormsModule } from '@angular/forms';
+import { ChannelService } from './shared/channel.service';
+import { WorkspaceService } from './shared/workspace.service';
+import { BaseService } from './shared/base.service';
+import { MessageService } from './shared/message.service';
+import { WebsocketService } from './shared/websocket.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 
 
@@ -32,9 +39,11 @@ import { FormsModule } from '@angular/forms';
     LandingPageModule,
     RegisterModule,
     LoginPageModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpModule,
   ],
-  providers: [UserService],
+  providers: [UserService, ChannelService, WorkspaceService, BaseService, MessageService, WebsocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
