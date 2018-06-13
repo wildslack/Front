@@ -46,14 +46,20 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
     //   this.messages.push(msg);
     // });
 
-
-     this.messageService.follow('1');
+    const discussionComponent = this;
+    this.messageService.follow('1', function(msg: Message) {
+      console.log('Received msg' + msg.message);
+      discussionComponent.addNewMessage(msg);
+    });
   }
 
+  addNewMessage(msg: Message) {
+    this.messages.push(msg);
+  }
 
   sendMessage() {
     // this.messageService.messages.next(Message.create(null, this.msgToSend, '2', '1'));
-    this.messageService.sendMessage(Message.create(null, this.msgToSend, '2', '1'));
+    this.messageService.sendMessage(Message.create(null, this.msgToSend, 2, 1, new Date()));
     this.msgToSend = '';
   }
 

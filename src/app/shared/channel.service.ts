@@ -45,7 +45,7 @@ export class ChannelService {
 
   post(message: Message) {
     const customHeader = this.baseService.buildHttpHeader();
-    const newMessageUrl = environment.rootUrl + '/api/channels/' + message.channelId + '/messages';
+    const newMessageUrl = environment.rootUrl + '/api/channels/' + message.idChannel + '/messages';
     this.http.post(newMessageUrl, message, customHeader);
   }
 

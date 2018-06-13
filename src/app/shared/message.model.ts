@@ -1,16 +1,19 @@
 export class Message {
   id: number;
   message: string;
-  userId: string;
-  channelId: string;
+  idUser: number;
+  idChannel: number;
+  postDate = new Date();
+
   constructor() {}
 
-  static create(id: number, message: string, userId: string, channelId: string) {
+  static create(id: number, message: string, idUser: number, idChannel: number, date: Date) {
     const msg = new Message();
     msg.id = id;
     msg.message = message;
-    msg.userId = userId;
-    msg.channelId = channelId;
+    msg.idUser = idUser;
+    msg.idChannel = idChannel;
+    msg.postDate = date;
     return msg;
   }
 }
