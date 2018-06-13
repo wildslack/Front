@@ -16,7 +16,7 @@ export class ChannelsPanelComponent implements OnInit {
 @Input() workspace$: Observable<Workspace>;
 channel$: Observable<Channel>;
 @Input() lastChannel$: Observable<Channel>;
-idUser = 1;
+
 
   public  channels: Channel[];
   constructor(private channelService: ChannelService, private httpClient: HttpClient) {

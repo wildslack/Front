@@ -13,7 +13,7 @@ import { Channel } from '../../shared/channel.model';
 export class MemberListComponent implements OnInit {
   users: User[];
   @Input() channel$: Observable<Channel>;
-  idUser = 1;
+
 
   constructor(private userService: UserService) { }
 

@@ -4,6 +4,8 @@ import { Observable, of } from 'rxjs';
 import { Workspace } from '../../shared/workspace.model';
 import { Channel } from '../../shared/channel.model';
 import { ChannelService } from '../../shared/channel.service';
+import { UserService } from '../../shared/user.service';
+import { User } from '../../shared/user.model';
 
 @Component({
   selector: 'app-side-pannel',
@@ -11,24 +13,28 @@ import { ChannelService } from '../../shared/channel.service';
   styleUrls: ['./side-pannel.component.scss']
 })
 export class SidePannelComponent implements OnInit {
- userId = 1;
+
  lastWorkspace$: Observable<Workspace>;
  lastChannel$: Observable<Channel>;
-  constructor(private workspaceService: WorkspaceService, private channelService: ChannelService) { }
+  constructor(private workspaceService: WorkspaceService, private channelService: ChannelService, private userService: UserService) { }
 
   ngOnInit() {
-    this.lastWorkspace$ = this.getLastWorkspace();
-    this.lastChannel$ = this.getLastChannel();
+   this.getLastWorkspace();
+   this.getLastChannel();
 
   }
 
   getLastWorkspace() {
-    return this.workspaceService.findLast(this.userId);
+    this.userService.getCurrentUser().subscribe((currentUser: User) => {
+    this.lastWorkspace$ = this.workspaceService.findLast(currentUser.idUser);
+  });
 
   }
 
   public getLastChannel() {
-   return this.channelService.findLast(this.userId);
+    this.userService.getCurrentUser().subscribe((currentUser: User) => {
+    this.lastChannel$ = this.channelService.findLast(currentUser.idUser);
+  });
   }
 
 }

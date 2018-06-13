@@ -17,13 +17,16 @@ import { BaseService } from './base.service';
 export class UserService {
   loginUrl = environment.rootUrl + '/login';
   registerUrl = environment.rootUrl + '/register';
-  getUsersUrl = environment.rootUrl + '/users';
+  getUsersUrl = environment.rootUrl + '/users/current';
+  currentUser: Observable<User>;
 
   constructor(private http: HttpClient, private router: Router, private baseService: BaseService) { }
 
+
+
   registerUser(user: User) {
     const body: User = {
-      id: user.id,
+      idUser: user.idUser,
       email: user.email,
       nickname: user.nickname,
       workspaceName: user.workspaceName,
@@ -41,9 +44,17 @@ export class UserService {
     return this.http.post(this.loginUrl, body, { observe: 'response' });
   }
 
-  getUserClaims() {
-    return this.http.get(this.getUsersUrl);
+  setCurrentUser(userEmail: String) {
+    const customHeader = this.baseService.buildHttpHeader();
+    const userUrl = environment.rootUrl + '/api/users/current?email=' + userEmail;
+    this.currentUser = this.http.get<User>(userUrl, customHeader);
+
   }
+
+  getCurrentUser(): Observable<User> {
+    return this.currentUser;
+  }
+
 
   logOut() {
 
