@@ -53,6 +53,7 @@ export class ChannelService {
     const customHeader = this.baseService.buildHttpHeader();
     const channelUrl = environment.rootUrl + '/api/channels/last?idUser=' + userId;
     return this.http.get<Channel>(channelUrl, customHeader);
+
   }
 
   updateCurrentChan(newChannel: Channel) {

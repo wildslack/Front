@@ -1,10 +1,12 @@
 <div id="discussion">
   <div class="messages" #messagescontainer>
     <ul>
+      <div>
       <li class="sent">
         <img src="http://emilcarlsson.se/assets/mikeross.png" alt="">
         <p>How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!</p>
       </li>
+    </div>
       <li class="replies">
         <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="">
         <p>When you're backed against the wall, break the god damn thing down.</p>
@@ -68,9 +70,14 @@
         <p>Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things.</p>
       </li>
 
-      <li class="replies" *ngFor="let msg of messages" >
+      <div *ngFor="let msg of messages">
+      <li *ngIf="msg.idUser != idUser" class="replies" >
         <p>{{msg.message}}</p>
       </li>
+      <li *ngIf="msg.idUser == idUser" class="sent" >
+        <p>{{msg.message}}</p>
+      </li>
+      </div>
 
     </ul>
   </div>

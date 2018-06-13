@@ -11,6 +11,8 @@ import {
 } from '@angular/forms';
 import { ChannelService } from '../../shared/channel.service';
 import { Channel } from '../../shared/channel.model';
+import { UserService } from '../../shared/user.service';
+import { User } from '../../shared/user.model';
 
 @Component({
   selector: 'app-discussion',
@@ -21,15 +23,16 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
 
   public messages: Array<Message>;
   msgToSend: string;
+  idUser: number;
+  idChannel: number;
 
   @Input('channel') private channel: Channel;
   @ViewChild('messagescontainer') private messagesDiv: ElementRef;
 
 
-  constructor(private messageService: MessageService, private channelService: ChannelService) {
+  constructor(private messageService: MessageService, private channelService: ChannelService, private userService: UserService) {
     this.messages = [
-      // Message.create(78, 'How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!', '2', '1'),
-      // Message.create(79, 'When youre backed against the wall, break the god damn thing down', '2', '1')
+
     ];
 
     this.scrollToBottom();
@@ -40,17 +43,16 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
-    // listen/receive messages
-    // this.messageService.messages.subscribe(msg => {
-    //   console.log('Response from websocket: ' + msg.message);
-    //   this.messages.push(msg);
-    // });
 
-    const discussionComponent = this;
-    this.messageService.follow('1', function(msg: Message) {
-      console.log('Received msg' + msg.message);
-      discussionComponent.addNewMessage(msg);
+    this.userService.getCurrentUser().subscribe((currentUser: User) => {
+      this.idUser = currentUser.idUser;
     });
+
+    this.channelService.getCurrentChannel().subscribe((currentChannel: Channel) => {
+      this.idChannel = currentChannel.idChannel;
+      this.subscribeToChannel(this.idChannel.toString());
+    });
+
   }
 
   addNewMessage(msg: Message) {
@@ -58,8 +60,7 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
   }
 
   sendMessage() {
-    // this.messageService.messages.next(Message.create(null, this.msgToSend, '2', '1'));
-    this.messageService.sendMessage(Message.create(null, this.msgToSend, 2, 1, new Date()));
+    this.messageService.sendMessage(Message.create(null, this.msgToSend, this.idUser, this.idChannel, new Date()));
     this.msgToSend = '';
   }
 
@@ -69,8 +70,17 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
 
   scrollToBottom(): void {
     try {
-        this.messagesDiv.nativeElement.scrollTop = this.messagesDiv.nativeElement.scrollHeight;
+      this.messagesDiv.nativeElement.scrollTop = this.messagesDiv.nativeElement.scrollHeight;
     } catch (err) { }
+  }
+
+  subscribeToChannel(idChannel: string) {
+    const discussionComponent = this;
+    this.messageService.follow(idChannel, function (msg: Message) {
+      console.log('Received msg' + msg.message);
+      discussionComponent.addNewMessage(msg);
+    });
+
   }
 
 
