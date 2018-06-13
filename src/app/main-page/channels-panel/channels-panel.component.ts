@@ -27,17 +27,17 @@ channel$: Observable<Channel>;
   }
 
   getChannelsbyWorkspaces() {
-    this.workspace$.subscribe(workspace =>
-      this.loadChannels(workspace)
-    );
+    this.workspace$.subscribe(workspace => {
+      this.loadChannels(workspace);
+    });
   }
 
 
   public loadChannels(workspace: Workspace) {
-    this.channelService.findByWorkspace(workspace.idWorkspace).subscribe((channels: Channel[]) =>
-    this.channels = channels);
-
-  }
+    this.channelService.findByWorkspace(workspace.idWorkspace).subscribe((channels: Channel[]) => {
+      this.channels = this.channels;
+    });
+    }
 
   switchChannel(channel: Channel) {
     this.channelService.updateCurrentChan(channel);

@@ -3,8 +3,10 @@
 
 </div>
   <div role="tablist" id="accordion-1">
-  <app-workspaces-panel [lastWorkspace$]="lastWorkspace$"></app-workspaces-panel>
-  <app-channels-panel [workspace$]="lastWorkspace$" [lastChannel$]="lastChannel$" ></app-channels-panel>
+  <app-workspaces-panel *ngIf="lastWorkspace$" [lastWorkspace$]="lastWorkspace$"></app-workspaces-panel>
+  <app-channels-panel *ngIf="lastWorkspace$ && lastChannel$" [workspace$]="lastWorkspace$" [lastChannel$]="lastChannel$" ></app-channels-panel>
+  </div>
+  <app-member-list *ngIf="lastChannel$" [channel$]="lastChannel$" ></app-member-list>
 </div>
 <app-member-list [channel$]="lastChannel$" ></app-member-list>
 </div>
