@@ -1,10 +1,12 @@
 <div id="sidebar-wrapper">
-  <ul class="sidebar-nav">
-      <li class="sidebar-brand">1</li>
-  </ul>
+ <div>
+
+</div>
   <div role="tablist" id="accordion-1">
   <app-workspaces-panel [lastWorkspace$]="lastWorkspace$"></app-workspaces-panel>
   <app-channels-panel [workspace$]="lastWorkspace$" [lastChannel$]="lastChannel$" ></app-channels-panel>
-  </div>
-  <app-member-list [channel$]="lastChannel$" ></app-member-list>
 </div>
+<app-member-list [channel$]="lastChannel$" ></app-member-list>
+</div>
+
+
