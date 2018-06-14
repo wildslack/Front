@@ -1,3 +1,6 @@
+$defaultcolor: #A03A70;
+$defaultbg: #efefef;
+
 #sidebar-wrapper,
 .sidebar-brand,
 #accodion-1,
@@ -26,7 +29,7 @@ color:#000000;
 
 .card-header{
   background-color:#ffffff00;
-  margin-bottom:30px;
+  //margin-bottom:30px;
   display:inline-block;
 }
 
@@ -56,12 +59,12 @@ color:#000000;
 
 }
 
-h5{
-  color:#000000;
+// h5{
+//   color:#000000;
 
-  margin-top:5px;
-  margin-left: 50px;
-}
+//   margin-top:5px;
+//   margin-left: 50px;
+// }
 
 .list-membre{
 
@@ -103,12 +106,12 @@ h5{
 
 
 
-.col .btn-secondary {
-  border-radius: 50px;
-  background: transparent;
-  color: #f4a443;
-  border: 2px solid #f4a443;
-}
+// .col .btn-secondary {
+//   border-radius: 50px;
+//   background: transparent;
+//   color: #f4a443;
+//   border: 2px solid #f4a443;
+// }
 
 #search-sidebar {
    border: 0px;
@@ -131,47 +134,51 @@ h5{
 
 }
 
-.card-header {
-  border: hidden;
-  margin-top : 0px;
+// .card-header {
+//   border: hidden;
+//   margin-top : 0px;
+// }
+
+// .card {
+//   text-align: center;
+//   //width: 95%;
+//   margin: 0px;
+//   //box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.26);
+//   border-radius: 0;
+// }
+
+// h6{
+//   margin-bottom: 20px;
+// }
+
+// .btn-sm {
+//   height: 10%;
+//   border-radius: 10px;
+//   background: transparent;
+//   color: #f4a443;
+//   border: 2px solid #f4a443;
+//   font-size: 15px ;
+
+// }
+
+
+
+
+.btn-link.app {
+  color: $defaultcolor;
+  font-size: 2em;
+  font-weight: bold;
 }
 
-.card {
-  text-align: center;
-  width: 95%;
-  margin: 0px;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.26);
 
+
+.add-channel {
+  color: $defaultcolor;
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: -0.38em;
+  margin-left: 0.5em;
 }
-
-h6{
-  margin-bottom: 20px;
-}
-
-.btn-sm {
-  height: 10%;
-  border-radius: 10px;
-  background: transparent;
-  color: #f4a443;
-  border: 2px solid #f4a443;
-  font-size: 15px ;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

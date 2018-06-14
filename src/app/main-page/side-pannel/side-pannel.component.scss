@@ -1,8 +1,18 @@
+$defaultcolor: #A03A70;
+$defaultbg: #efefef;
+
 #sidebar-wrapper {
-  background: #e6e6e6;
+  background: $defaultbg;//#e6e6e6;
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.26);
    z-index: 900;
 }
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    width: 20em;
+  }
+}
+
 
 .ws-a{
 margin:19px;
@@ -18,27 +28,27 @@ color:#000000;
 
 #list-channel{
   margin-bottom:40px;
-  background: #e6e6e6;
+  background: $defaultbg;
 }
 
 .card-header{
-  background: #e6e6e6;
+  background: $defaultbg;
   ;margin-bottom:30px;
   display:inline-block;
 }
 
 .text-white{
   margin-top:20px;
-  background: #e6e6e6;
+  background: $defaultbg;
 }
 
 .channel-title{
-  background: #e6e6e6;
+  background: $defaultbg;
 }
 
 .label-channel{
   color:#000000;
-  background: #e6e6e6;
+  background: $defaultbg;
   margin-top:10px;
 }
 
@@ -49,7 +59,7 @@ color:#000000;
 
 .list-group-item{
   color:#000000;
-  background: #e6e6e6;
+  background: $defaultbg;
   padding:0px;
   padding-left:19px;
 }
@@ -70,3 +80,37 @@ h5{
 }
 
 
+.btn-secondary {
+  color: #fff;
+  background-color: $defaultbg;
+  border-color: $defaultbg;
+}
+
+
+
+
+
+
+h5 {
+  text-align: left;
+}
+
+.container .list-group-item {
+  border : hidden;
+
+}
+
+.card-header {
+  border: hidden;
+  background-color: transparent;
+}
+
+.card {
+  text-align: left;
+  padding-left: 2em;
+  //width: 95%;
+  margin-bottom: 16px;
+  border-radius: 0;
+  //box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.26);
+
+}

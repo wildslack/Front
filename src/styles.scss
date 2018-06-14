@@ -13,7 +13,8 @@
 @import"assets/css/Sidebar-Menu.css";
 @import"assets/css/styles.css";
 
-
+$defaultcolor: #A03A70;
+$defaultbg: #efefef;
 
 .nooverflowy {
   overflow-y: hidden;
@@ -21,9 +22,35 @@
 
 
 
+.card.side h5 {
+  text-align: left;
+  color: $defaultcolor;
+  font-weight: bold;
+}
+.card.side .card-header {
+  border: hidden;
+  background-color: transparent;
+}
 
+.card.side {
+  text-align: left;
+  padding-left: 2em;
+  margin-bottom: 16px;
+  border-radius: 0;
+}
 
+.card.side ul > li:hover {
+  color: $defaultcolor;
+}
+.card.side ul > li:hover {
+  cursor: pointer;
+}
 
+.btn-primary.app {
+  color: #fff;
+  background-color: $defaultcolor;
+  border-color: $defaultcolor;
+}
 
 
 

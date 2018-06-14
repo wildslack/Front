@@ -4,9 +4,11 @@
 
 export const environment = {
   production: false,
-  // rootUrl: 'http://localhost:8080',
-  rootUrl: 'http://192.168.88.243:8080',
-  socketUrl : 'http://192.168.88.243:8080/websocket'
+  rootUrl: 'http://localhost:8080',
+  socketUrl : 'http://localhost:8080/websocket'
+
+  // rootUrl: 'http://192.168.88.243:8080',
+  // socketUrl : 'http://192.168.88.243:8080/websocket'
 
 };
 
