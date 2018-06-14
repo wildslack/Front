@@ -50,8 +50,8 @@ channel: Channel;
 
  onSubmit() {
     this.channelService.newChannel(this.channel.name, this.channel.description).subscribe((data:any) => {
-      this.baseService.buildHttpHeader();
-      this.router.navigate(['main-page']);
+      const customHeader = this.baseService.buildHttpHeader().headers.get('WildslackAuthorization');
+      this.router.navigate(['main-page',  data, customHeader]);
       });
  }
 
