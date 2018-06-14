@@ -18,15 +18,15 @@ export class WorkspaceService {
 
   constructor(private http: HttpClient, private baseService: BaseService) { }
 
-  findAll(userId: number): Observable<Workspace[]> {
+  findAll(idUser: number): Observable<Workspace[]> {
     const customHeader = this.baseService.buildHttpHeader();
-    const workspacesUrl = environment.rootUrl + '/api/workspaces?idUser=' + userId;
+    const workspacesUrl = environment.rootUrl + '/api/workspaces?idUser=' + idUser;
     return this.http.get<Workspace[]>(workspacesUrl, customHeader);
   }
 
-  findLast(userId: number): Observable<Workspace> {
+  findLast(idUser: number): Observable<Workspace> {
     const customHeader = this.baseService.buildHttpHeader();
-    const workspacesUrl = environment.rootUrl + '/api/workspaces/last?idUser=' + userId;
+    const workspacesUrl = environment.rootUrl + '/api/workspaces/last?idUser=' + idUser;
     return this.http.get<Workspace>(workspacesUrl, customHeader);
   }
 }

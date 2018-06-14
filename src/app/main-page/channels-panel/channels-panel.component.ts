@@ -19,8 +19,12 @@ export class ChannelsPanelComponent implements OnInit {
 @Input() workspace$: Observable<Workspace>;
 channel$: Observable<Channel>;
 @Input() lastChannel$: Observable<Channel>;
+<<<<<<< HEAD
 idUser = 1;
 channel: Channel;
+=======
+
+>>>>>>> 4b04fb8d8e8644296756591476bed264b958c084
 
   public  channels: Channel[];
   constructor(private channelService: ChannelService,private baseService: BaseService, private httpClient: HttpClient, private router: Router) {
@@ -39,12 +43,20 @@ channel: Channel;
 
 
   public loadChannels(workspace: Workspace) {
+<<<<<<< HEAD
     this.channelService.findByWorkspace(workspace.idWorkspace).subscribe((channels: Channel[]) =>
     this.channels = channels);
   }
+=======
+    this.channelService.findByWorkspace(workspace.idWorkspace).subscribe((channels: Channel[]) => {
+      this.channels = channels;
+    });
+    }
+>>>>>>> 4b04fb8d8e8644296756591476bed264b958c084
 
   switchChannel(channel: Channel) {
     this.channelService.updateCurrentChan(channel);
+    console.log(channel);
     return this.channelService.getCurrentChannel();
     }
 

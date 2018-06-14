@@ -2,7 +2,7 @@
 .sidebar-brand,
 #accodion-1,
 .card-header {
-  background-color:#ffffff;
+  background-color:#ffffff00;
 }
 
 .ws-a{
@@ -19,18 +19,19 @@ color:#000000;
 
 #list-channel{
   margin-bottom:40px;
-  background-color:#ffffff;
+  background-color:#ffffff00;
+  border: none;
+
 }
 
 .card-header{
-  background-color:#ffffff
-  ;margin-bottom:30px;
+  background-color:#ffffff00;
+  margin-bottom:30px;
   display:inline-block;
 }
 
 .text-white{
-  margin-top:20px;
-  background-color:#ffffff;
+  background-color:#ffffff00;
 }
 
 .channel-title{
@@ -39,26 +40,27 @@ color:#000000;
 
 .label-channel{
   color:#000000;
-  background-color:#ffffff;
+  background-color:#ffffff00;
   margin-top:10px;
 }
 
 .btn{
-  margin:10px;
+  margin:5px;
+  margin-bottom: 10px;
   margin-right:5%;
 }
 
 .list-group-item{
   color:#000000;
   background-color:initial;
-  padding:0px;
-  padding-left:19px;
+
 }
 
 h5{
   color:#000000;
-  margin-left:20px;
-  margin-top:20px;
+
+  margin-top:5px;
+  margin-left: 50px;
 }
 
 .list-membre{
@@ -69,5 +71,109 @@ h5{
 .members{
   color:#000000;
 }
+
+#search-sidebar {
+  width: 55%;
+
+}
+#btn-search-sidebar {
+  width: 35%;
+
+
+}
+
+#list-channel .card-header {
+  border: 0px;
+  width: 100%;
+
+}
+
+#list-channels .list-group-item {
+  text-align: center;
+  border: none;
+
+}
+#list-channels a {
+  font-size: 100%;
+}
+
+#list-channel .btn-secondary {
+  margin-left: 10px;
+}
+
+
+
+.col .btn-secondary {
+  border-radius: 50px;
+  background: transparent;
+  color: #f4a443;
+  border: 2px solid #f4a443;
+}
+
+#search-sidebar {
+   border: 0px;
+}
+
+.col h4 {
+   color: white;
+   margin: 0px;
+   margin-top: 5px
+}
+
+.col h3{
+   color: white;
+   text-align: center;
+
+}
+
+.container .list-group-item {
+  border : hidden;
+
+}
+
+.card-header {
+  border: hidden;
+  margin-top : 0px;
+}
+
+.card {
+  text-align: center;
+  width: 95%;
+  margin: 0px;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.26);
+
+}
+
+h6{
+  margin-bottom: 20px;
+}
+
+.btn-sm {
+  height: 10%;
+  border-radius: 10px;
+  background: transparent;
+  color: #f4a443;
+  border: 2px solid #f4a443;
+  font-size: 15px ;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

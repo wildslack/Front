@@ -2,4 +2,6 @@
 <div class="visible" id="wrapper">
 <app-side-pannel></app-side-pannel>
 </div>
-<app-discussion></app-discussion>
+<div>
+<app-discussion *ngIf="channel == true"></app-discussion>
+</div>

@@ -29,7 +29,7 @@ export class RegisterComponent {
       form.reset();
     }
     this.user = {
-      id: 0,
+      idUser: 0,
       email: '',
       nickname: '',
       password: '',
