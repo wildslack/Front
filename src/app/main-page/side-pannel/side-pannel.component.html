@@ -6,7 +6,7 @@
   <app-workspaces-panel *ngIf="lastWorkspace$" [lastWorkspace$]="lastWorkspace$"></app-workspaces-panel>
   <app-channels-panel *ngIf="lastWorkspace$ && lastChannel$ " [workspace$]="lastWorkspace$" [lastChannel$]="lastChannel$" ></app-channels-panel>
   </div>
-  <app-member-list *ngIf="lastChannel$" [channel$]="lastChannel$" ></app-member-list>
+  <app-member-list *ngIf="lastChannel$ && lastWorkspace$" [channel$]="lastChannel$ " [workspace$]="lastWorkspace$" ></app-member-list>
 </div>
 
 

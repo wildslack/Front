@@ -3,8 +3,11 @@
     <h5>Members</h5>
   </div>
   <div class="card-body">
-  <ul class="list-membre">
-    <li *ngFor="let user of users " class="members">{{user.nickname}}</li>
-  </ul>
+    <ul class="list-membre">
+      <div *ngFor="let user of users">
+        <li *ngIf="user.idUser !== currentUser.idUser " (click)="OpenDirectChat(user)" class="members">{{user.nickname}}</li>
+      </div>
+    </ul>
+
 </div>
 </div>

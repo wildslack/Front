@@ -65,5 +65,18 @@ export class ChannelService {
     return this.currentChannel$;
   }
 
+  getDirectChat(currentUserId: number , userId: number): Observable<Channel> {
+    const customHeader = this.baseService.buildHttpHeader();
+    const channelUrl = environment.rootUrl + '/api/channels/chats?idUser=' + currentUserId + '&idUser2=' + userId;
+    return this.http.get<Channel>(channelUrl, customHeader);
+  }
+
+  createDirectChat(currentUserId: number , userId: number, workspaceId: number): Observable<Channel> {
+    const customHeader = this.baseService.buildHttpHeader();
+    const channelUrl = environment.rootUrl + '/api/channels/chats/create?idWorkspace=' + workspaceId
+    + '&idUser=' + currentUserId + '&idUser2=' + userId;
+    return this.http.get<Channel>(channelUrl, customHeader);
+  }
+
 }
 
