@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../../shared/user.model';
 import { Workspace } from '../../shared/workspace.model';
 import { Observable, of } from 'rxjs';
+import { UserService } from '../../shared/user.service';
+
 
 
 @Component({
@@ -14,10 +16,10 @@ import { Observable, of } from 'rxjs';
 
 
 export class WorkspacesPanelComponent implements OnInit {
-  userId = 1;
+
   public workspaces: Workspace[];
   @Input() lastWorkspace$: Observable<Workspace>;
-  constructor(private workspaceService: WorkspaceService, private httpClient: HttpClient) {
+  constructor(private workspaceService: WorkspaceService, private httpClient: HttpClient, private userService: UserService) {
 
   }
 
@@ -28,8 +30,10 @@ export class WorkspacesPanelComponent implements OnInit {
 
 
     getAllWorkspaces() {
-      this.workspaceService.findAll(this.userId).subscribe((workspaces: Workspace[]) => {
-        this.workspaces = workspaces; });
+      this.userService.getCurrentUser().subscribe((currentUser: User) => {
+        this.workspaceService.findAll(currentUser.idUser).subscribe((workspaces: Workspace[]) => {
+          this.workspaces = workspaces; });
+      });
     }
 
 

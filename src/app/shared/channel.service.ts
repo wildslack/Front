@@ -31,7 +31,7 @@ export class ChannelService {
   findMessages(channelId: number, idMessage): Observable<Message[]> {
     const customHeader = this.baseService.buildHttpHeader();
     let messagesUrl;
-    if (idMessage === undefined || idMessage === 0) {
+    if (idMessage === undefined || idMessage === 0 || !idMessage) {
      messagesUrl = environment.rootUrl + '/api/channels/' + channelId + '/messages';
     } else {
      messagesUrl = environment.rootUrl + '/api/channels/' + channelId + '/messages?startmessageindex=' + idMessage ;
@@ -39,9 +39,13 @@ export class ChannelService {
     return this.http.get<Message[]>(messagesUrl, customHeader);
   }
 
+  findLastMessages(channelId: number): Observable<Message[]> {
+    return this.findMessages(channelId, undefined);
+  }
+
   post(message: Message) {
     const customHeader = this.baseService.buildHttpHeader();
-    const newMessageUrl = environment.rootUrl + '/api/channels/' + message.channelId + '/messages';
+    const newMessageUrl = environment.rootUrl + '/api/channels/' + message.idChannel + '/messages';
     this.http.post(newMessageUrl, message, customHeader);
   }
 
@@ -49,6 +53,7 @@ export class ChannelService {
     const customHeader = this.baseService.buildHttpHeader();
     const channelUrl = environment.rootUrl + '/api/channels/last?idUser=' + userId;
     return this.http.get<Channel>(channelUrl, customHeader);
+
   }
 
   updateCurrentChan(newChannel: Channel) {

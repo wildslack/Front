@@ -48,7 +48,7 @@
   text-indent:9px;
   height:45px;
   margin-right:10px;
-  width:350px;
+  width:100%;
 }
 
 .newsletter-subscribe form .btn {
@@ -207,9 +207,6 @@ body {
   background-color:transparent;
 }
 
-#title-channel {
-  padding-top:40px;
-}
 
 .form-inline.text-right {
   margin-left:2%;
