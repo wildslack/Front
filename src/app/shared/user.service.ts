@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
 import { User } from './user.model';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
@@ -47,12 +48,18 @@ export class UserService {
   setCurrentUser(userEmail: String) {
     const customHeader = this.baseService.buildHttpHeader();
     const userUrl = environment.rootUrl + '/api/users/current?email=' + userEmail;
-    this.currentUser = this.http.get<User>(userUrl, customHeader);
+    this.http.get<User>(userUrl, customHeader).subscribe((currentUser: User) => {
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    });
 
   }
 
-  getCurrentUser(): Observable<User> {
-    return this.currentUser;
+
+
+  getCurrentUser():  Observable<User> {
+    const JsoncurrentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const currentUser = User.create(JsoncurrentUser.idUser, JsoncurrentUser.nickname);
+    return Observable.of(currentUser);
   }
 
 
