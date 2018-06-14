@@ -6,5 +6,12 @@ export class User {
   workspaceName: string;
 
   constructor() { }
+
+  static create(idUser: number, nickname: string): User {
+    const currentUser = new User();
+    currentUser.idUser = idUser;
+    currentUser.nickname = nickname;
+    return currentUser;
+  }
 }
 

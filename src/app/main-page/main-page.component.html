@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="visible" id="wrapper">
-<app-side-pannel></app-side-pannel>
+<app-side-pannel *ngIf="channel == true" ></app-side-pannel>
 </div>
 <div>
 <app-discussion *ngIf="channel == true"></app-discussion>

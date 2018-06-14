@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../shared/user.model';
+import { UserService } from '../../shared/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,13 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  currentUser: User;
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     $('#menu-toggle').click(function(e) {
       e.preventDefault();
       $('#wrapper').toggleClass('toggled');
-  });
+
+       });
+
+       this.userService.getCurrentUser().subscribe((user: User) => {
+         this.currentUser = user;
+       });
   }
+
 
 }

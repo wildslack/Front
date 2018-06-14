@@ -42,7 +42,7 @@ channel$: Observable<Channel>;
   switchChannel(channel: Channel) {
     this.channelService.updateCurrentChan(channel);
     console.log(channel);
-    return this.channelService.getCurrentChannel();
+    this.lastChannel$ = this.channelService.getCurrentChannel();
     }
 
 }

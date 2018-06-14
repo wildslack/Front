@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Response } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable,BehaviorSubject } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 import { User } from './user.model';
@@ -19,8 +19,9 @@ export class UserService {
   loginUrl = environment.rootUrl + '/login';
   registerUrl = environment.rootUrl + '/register';
   getUsersUrl = environment.rootUrl + '/users/current';
-  currentUser: Observable<User>;
+  private currentUser = <User>{};
 
+  protected currentUser$: BehaviorSubject<User> = new BehaviorSubject<User>(this.currentUser);
   constructor(private http: HttpClient, private router: Router, private baseService: BaseService) { }
 
 
@@ -45,27 +46,29 @@ export class UserService {
     return this.http.post(this.loginUrl, body, { observe: 'response' });
   }
 
-  setCurrentUser(userEmail: String) {
+  setCurrentUser(userEmail: String){
     const customHeader = this.baseService.buildHttpHeader();
     const userUrl = environment.rootUrl + '/api/users/current?email=' + userEmail;
     this.http.get<User>(userUrl, customHeader).subscribe((currentUser: User) => {
-      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    const JsoncurrentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.currentUser = User.create(JsoncurrentUser.idUser, JsoncurrentUser.nickname);
     });
-
   }
 
 
 
   getCurrentUser():  Observable<User> {
-    const JsoncurrentUser = JSON.parse(localStorage.getItem('currentUser'));
-    const currentUser = User.create(JsoncurrentUser.idUser, JsoncurrentUser.nickname);
-    return Observable.of(currentUser);
+    this.currentUser$.next(this.currentUser);
+
+    return this.currentUser$;
   }
 
 
   logOut() {
 
     localStorage.removeItem('WildslackAuthorization');
+    localStorage.removeItem('currentUser');
     this.router.navigate(['landing-page']);
   }
 
