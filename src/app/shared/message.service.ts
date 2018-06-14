@@ -19,6 +19,7 @@ import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client/dist/sockjs';
 import { BaseService } from './base.service';
 import { HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 
 const CHAT_URL = 'ws://echo.websocket.org/';
@@ -27,7 +28,6 @@ const CHAT_URL = 'ws://echo.websocket.org/';
   providedIn: 'root'
 })
 export class MessageService {
-  private serverUrl = 'http://localhost:8080/websocket';
   private title = 'WebSockets chat';
   private stompClient: Stomp;
 
@@ -35,7 +35,7 @@ export class MessageService {
   public messages: Subject<Message>;
 
   constructor() {
-    const ws = new SockJS(this.serverUrl);
+    const ws = new SockJS(environment.socketUrl);
     this.stompClient = Stomp.over(ws);
   }
 

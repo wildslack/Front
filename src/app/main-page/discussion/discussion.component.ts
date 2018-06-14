@@ -35,11 +35,7 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
 
     ];
 
-    this.scrollToBottom();
 
-    this.channelService.findLastMessages(1).subscribe(msgs =>
-      this.messages = msgs
-    );
   }
 
   ngOnInit() {
@@ -50,6 +46,9 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
 
     this.channelService.getCurrentChannel().subscribe((currentChannel: Channel) => {
       this.idChannel = currentChannel.idChannel;
+      this.channelService.findLastMessages(this.idChannel).subscribe(msgs =>
+        this.messages = msgs
+      );
       this.subscribeToChannel(this.idChannel.toString());
     });
 
@@ -57,6 +56,7 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
 
   addNewMessage(msg: Message) {
     this.messages.push(msg);
+    this.scrollToBottom();
   }
 
   sendMessage() {
@@ -83,6 +83,9 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
 
   }
 
+  isCurrentUserMessage(msgUserId: number) {
+    return this.idUser === msgUserId;
+  }
 
 
 }
