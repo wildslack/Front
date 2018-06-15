@@ -40,10 +40,7 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
 
-    this.userService.getCurrentUser().subscribe((currentUser: User) => {
-      this.idUser = currentUser.idUser;
-    });
-
+    this.idUser =  this.userService.getCurrentUser().idUser;
     this.channelService.getCurrentChannel().subscribe((currentChannel: Channel) => {
       this.idChannel = currentChannel.idChannel;
       this.channelService.findLastMessages(this.idChannel).subscribe(msgs =>
