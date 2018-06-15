@@ -182,5 +182,33 @@ color:#000000;
 
 
 
+.card.side h5 {
+  text-align: left;
+  color: $defaultcolor;
+  font-weight: bold;
+}
+.card.side .card-header {
+  border: hidden;
+  background-color: transparent;
+}
 
+.card.side {
+  text-align: left;
+  padding-left: 2em;
+  margin-bottom: 16px;
+  border-radius: 0;
+}
+
+.card.side ul > li:hover {
+  color: $defaultcolor;
+}
+.card.side ul > li:hover {
+  cursor: pointer;
+}
+.list-membre {
+  list-style-type: none;
+  text-align: left;
+  padding-left: 0px;
+  margin-bottom: 0px;
+}
 

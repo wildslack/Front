@@ -45,7 +45,6 @@
       <button class="btn btn-primary app text-right" type="button">Create</button>
     </div>
     <h6 *ngIf="lastChannel$ | async as channel">{{channel.name}}</h6>
-    <div class="container">
         <ul class="list-membre">
             <li *ngFor="let channel of channels" (click)="switchChannel(channel)" class="members">{{channel.name}}</li>
           </ul>
@@ -55,7 +54,6 @@
           <button class="btn btn-secondary">{{channel.name}}</button>
         </div>
       </div> -->
-    </div>
   </div>
 </div>
 
