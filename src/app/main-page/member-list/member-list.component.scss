@@ -1,29 +1,17 @@
-h5 {
-  text-align: center;
-}
+$defaultcolor: #A03A70;
+$defaultbg: #efefef;
+
 
 .list-membre {
   list-style-type: none;
-  text-align: center;
+  text-align: left;
   padding-left: 0px;
   margin-bottom: 0px;
 }
+
 
 .container .list-group-item {
   border : hidden;
 
 }
 
-.card-header {
-  border: hidden;
-  background-color: transparent;
-}
-
-.card {
-  text-align: center;
-
-  width: 95%;
-  margin-bottom: 16px;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.26);
-
-}
