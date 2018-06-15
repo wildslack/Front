@@ -33,13 +33,17 @@ export class LoginPageComponent implements OnInit {
     this.userService.userAuthentication(this.user.email, this.user.password).subscribe((data: any) => {
       localStorage.setItem('WildslackAuthorization', data.headers.get('WildslackAuthorization'));
       this.userService.setCurrentUser(this.user.email);
-      this.router.navigate(['main-page']);
-    },
-      (error: HttpErrorResponse) => {
-        this.isLoginError = true;
-      });
+      this.userService.getCurrentUser().subscribe((user: User) => {
+        this.router.navigate(['main-page']);
+      })
+
+    });
+    // tslint:disable-next-line:no-unused-expression
+    (error: HttpErrorResponse) => {
+      this.isLoginError = true; };
 
   }
+
 
 
 

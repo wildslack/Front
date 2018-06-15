@@ -46,7 +46,7 @@ export class UserService {
     return this.http.post(this.loginUrl, body, { observe: 'response' });
   }
 
-  setCurrentUser(userEmail: String){
+  setCurrentUser(userEmail: String) {
     const customHeader = this.baseService.buildHttpHeader();
     const userUrl = environment.rootUrl + '/api/users/current?email=' + userEmail;
     this.http.get<User>(userUrl, customHeader).subscribe((currentUser: User) => {
@@ -59,8 +59,9 @@ export class UserService {
 
 
   getCurrentUser():  Observable<User> {
+    while (this.currentUser.idUser === undefined){
     this.currentUser$.next(this.currentUser);
-
+    }
     return this.currentUser$;
   }
 
