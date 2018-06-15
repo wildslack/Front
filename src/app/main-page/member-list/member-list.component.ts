@@ -15,16 +15,15 @@ export class MemberListComponent implements OnInit {
   users: User[];
   @Input() channel$: Observable<Channel>;
   @Input() workspace$: Observable<Workspace>;
-  currentUser: User;
+
 
 
   constructor(private userService: UserService, private channelService: ChannelService) { }
 
   ngOnInit() {
+
     this.getUsersbyChannel();
-    this.userService.getCurrentUser().subscribe((currentUser: User) => {
-      this.currentUser = currentUser;
-    });
+
   }
 
   getUsersbyChannel() {
@@ -42,21 +41,20 @@ export class MemberListComponent implements OnInit {
   }
 
   OpenDirectChat(user: User) {
-    this.userService.getCurrentUser().subscribe((currentUser: User) => {
-      this.channelService.getDirectChat(currentUser.idUser, user.idUser).subscribe((channel: Channel) => {
-        if ( channel !== null) {
-          this.channelService.updateCurrentChan(channel);
-        } else {
-          this.workspace$.subscribe((workspace: Workspace) => {
-            this.channelService
-              .createDirectChat(workspace.idWorkspace, currentUser.idUser, user.idUser)
-              .subscribe((chatChannel: Channel) => {
+    this.channelService.getDirectChat(this.userService.getCurrentUser().idUser, user.idUser).subscribe((channel: Channel) => {
+      if (channel !== null) {
+        this.channelService.updateCurrentChan(channel);
+      } else {
+        this.workspace$.subscribe((workspace: Workspace) => {
+          this.channelService
+            .createDirectChat(workspace.idWorkspace, this.userService.getCurrentUser().idUser, user.idUser)
+            .subscribe((chatChannel: Channel) => {
               this.channelService.updateCurrentChan(chatChannel);
             });
-          });
-        }
-      });
+        });
+      }
     });
-   }
+
+  }
 
 }

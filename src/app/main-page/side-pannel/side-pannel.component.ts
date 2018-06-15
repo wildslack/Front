@@ -25,16 +25,14 @@ export class SidePannelComponent implements OnInit {
   }
 
   getLastWorkspace() {
-    this.userService.getCurrentUser().subscribe((currentUser: User) => {
-    this.lastWorkspace$ = this.workspaceService.findLast(currentUser.idUser);
-  });
+    this.lastWorkspace$ = this.workspaceService.findLast(this.userService.getCurrentUser().idUser);
 
   }
 
   public getLastChannel() {
-    this.userService.getCurrentUser().subscribe((currentUser: User) => {
-    this.lastChannel$ = this.channelService.findLast(currentUser.idUser);
-  });
+
+    this.lastChannel$ = this.channelService.findLast(this.userService.getCurrentUser().idUser);
+
   }
 
 }
