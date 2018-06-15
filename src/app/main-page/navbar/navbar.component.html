@@ -1,8 +1,9 @@
 <div class="page-content-wrapper">
-  <div class="container-fluid"><a class="btn btn-link" role="button" href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></a><a href="#" class="a-general">#general</a><img src="assets/img/logoRC.png" class="img-header xs-2">
+  <div class="container-fluid"><a class="btn btn-link" role="button" href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></a>
+    <span id="wildslack-title">WILDSLACK</span>
       <div
-          class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="menu-member">Stephen&nbsp;</button>
-          <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#"></a><a class="dropdown-item" role="presentation" href="#">Profil</a><a class="dropdown-item" role="presentation" href="#">Logout</a></div>
+          class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" id="menu-member">{{currentUser.nickname}}</button>
+          <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#"></a><a class="dropdown-item" role="presentation" href="#">Profil</a><a class="dropdown-item" role="presentation"(click)="Logout()"href="#">Logout</a></div>
   </div>
 </div>
 </div>

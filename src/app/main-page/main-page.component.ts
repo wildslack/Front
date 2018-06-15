@@ -11,19 +11,19 @@ import { Channel } from '../shared/channel.model';
 })
 
 
+
 export class MainPageComponent implements OnInit {
-  channel = false;
+  onLoad = true;
   constructor(private renderer: Renderer2, private channelService: ChannelService, private userService: UserService) { }
 
   ngOnInit() {
     this.renderer.addClass(document.body, 'nooverflowy');
-    this.userService.getCurrentUser().subscribe((user: User) => {
-      this.channelService.findLast(user.idUser).subscribe((channel: Channel) => {
-        this.channelService.updateCurrentChan(channel);
-        this.channel = true;
-      });
 
+    this.channelService.findLast(this.userService.getCurrentUser().idUser).subscribe((channel: Channel) => {
+      this.channelService.updateCurrentChan(channel);
+      this.onLoad = false;
     });
+
   }
 
 }

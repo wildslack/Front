@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Response } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject, Subject, observable, AsyncSubject } from 'rxjs';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/last';
 import { User } from './user.model';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { BaseService } from './base.service';
+import { last } from 'rxjs-compat/operator/last';
 
 
 
@@ -18,8 +21,8 @@ export class UserService {
   loginUrl = environment.rootUrl + '/login';
   registerUrl = environment.rootUrl + '/register';
   getUsersUrl = environment.rootUrl + '/users/current';
-  currentUser: Observable<User>;
-
+  currentUser: User;
+  currentUser$: Subject<User> ;
   constructor(private http: HttpClient, private router: Router, private baseService: BaseService) { }
 
 
@@ -47,18 +50,30 @@ export class UserService {
   setCurrentUser(userEmail: String) {
     const customHeader = this.baseService.buildHttpHeader();
     const userUrl = environment.rootUrl + '/api/users/current?email=' + userEmail;
-    this.currentUser = this.http.get<User>(userUrl, customHeader);
-
+    this.http.get<User>(userUrl, customHeader).subscribe((currentUser: User) => {
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    this.getCurrentUser();
+    this.router.navigate(['main-page']);
+    });
   }
 
-  getCurrentUser(): Observable<User> {
-    return this.currentUser;
+
+
+  getCurrentUser(): User {
+  const JsoncurrentUser = JSON.parse(localStorage.getItem('currentUser'));
+  this.currentUser = User.create(JsoncurrentUser.idUser, JsoncurrentUser.nickname);
+   this.currentUser$ = new AsyncSubject<User>();
+   this.currentUser$.subscribe((user: User) => {
+     this.currentUser = user;
+    });
+     return this.currentUser;
   }
 
 
   logOut() {
 
     localStorage.removeItem('WildslackAuthorization');
+    localStorage.removeItem('currentUser');
     this.router.navigate(['landing-page']);
   }
 

@@ -1,12 +1,13 @@
-<div class="card  mb-3">
+<div class="card side  mb-3">
   <div class="card-header">
     <h5>Members</h5>
   </div>
   <div class="card-body">
     <ul class="list-membre">
-      <div *ngFor="let user of users">
+      <li *ngFor="let user of users" (click)="OpenDirectChat(user)" class="members">{{user.nickname}}</li>
+      <!-- <div *ngFor="let user of users">
         <li *ngIf="user.idUser !== currentUser.idUser " (click)="OpenDirectChat(user)" class="members">{{user.nickname}}</li>
-      </div>
+      </div> -->
     </ul>
 
 </div>

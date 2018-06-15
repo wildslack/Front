@@ -29,12 +29,13 @@ export class WorkspacesPanelComponent implements OnInit {
   }
 
 
-    getAllWorkspaces() {
-      this.userService.getCurrentUser().subscribe((currentUser: User) => {
-        this.workspaceService.findAll(currentUser.idUser).subscribe((workspaces: Workspace[]) => {
-          this.workspaces = workspaces; });
-      });
-    }
+  getAllWorkspaces() {
+
+    this.workspaceService.findAll(this.userService.getCurrentUser().idUser).subscribe((workspaces: Workspace[]) => {
+      this.workspaces = workspaces;
+    });
+
+  }
 
 
 

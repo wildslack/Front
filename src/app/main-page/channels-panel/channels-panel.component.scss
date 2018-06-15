@@ -1,3 +1,6 @@
+$defaultcolor: #A03A70;
+$defaultbg: #efefef;
+
 #sidebar-wrapper,
 .sidebar-brand,
 #accodion-1,
@@ -26,7 +29,7 @@ color:#000000;
 
 .card-header{
   background-color:#ffffff00;
-  margin-bottom:30px;
+  //margin-bottom:30px;
   display:inline-block;
 }
 
@@ -56,12 +59,12 @@ color:#000000;
 
 }
 
-h5{
-  color:#000000;
+// h5{
+//   color:#000000;
 
-  margin-top:5px;
-  margin-left: 50px;
-}
+//   margin-top:5px;
+//   margin-left: 50px;
+// }
 
 .list-membre{
 
@@ -103,12 +106,12 @@ h5{
 
 
 
-.col .btn-secondary {
-  border-radius: 50px;
-  background: transparent;
-  color: #f4a443;
-  border: 2px solid #f4a443;
-}
+// .col .btn-secondary {
+//   border-radius: 50px;
+//   background: transparent;
+//   color: #f4a443;
+//   border: 2px solid #f4a443;
+// }
 
 #search-sidebar {
    border: 0px;
@@ -131,49 +134,81 @@ h5{
 
 }
 
-.card-header {
+// .card-header {
+//   border: hidden;
+//   margin-top : 0px;
+// }
+
+// .card {
+//   text-align: center;
+//   //width: 95%;
+//   margin: 0px;
+//   //box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.26);
+//   border-radius: 0;
+// }
+
+// h6{
+//   margin-bottom: 20px;
+// }
+
+// .btn-sm {
+//   height: 10%;
+//   border-radius: 10px;
+//   background: transparent;
+//   color: #f4a443;
+//   border: 2px solid #f4a443;
+//   font-size: 15px ;
+
+// }
+
+
+
+
+.btn-link.app {
+  color: $defaultcolor;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+
+
+.add-channel {
+  color: $defaultcolor;
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: -0.38em;
+  margin-left: 0.5em;
+}
+
+
+
+.card.side h5 {
+  text-align: left;
+  color: $defaultcolor;
+  font-weight: bold;
+}
+.card.side .card-header {
   border: hidden;
-  margin-top : 0px;
+  background-color: transparent;
 }
 
-.card {
-  text-align: center;
-  width: 95%;
-  margin: 0px;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.26);
-
+.card.side {
+  text-align: left;
+  padding-left: 2em;
+  margin-bottom: 16px;
+  border-radius: 0;
 }
 
-h6{
-  margin-bottom: 20px;
+.card.side ul > li:hover {
+  color: $defaultcolor;
 }
-
-.btn-sm {
-  height: 10%;
-  border-radius: 10px;
-  background: transparent;
-  color: #f4a443;
-  border: 2px solid #f4a443;
-  font-size: 15px ;
-
+.card.side ul > li:hover {
+  cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.list-membre {
+  list-style-type: none;
+  text-align: left;
+  padding-left: 0px;
+  margin-bottom: 0px;
+}
 

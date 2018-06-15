@@ -1,3 +1,6 @@
+$defaultcolor: #A03A70;
+$defaultbg: #efefef;
+
 #sidebar-wrapper,
 .sidebar-brand,
 #accodion-1,
@@ -60,10 +63,11 @@ h5{
 
 .card {
   text-align: center;
-  width: 95%;
+  //width: 95%;
   margin-top: 16px;
-margin-bottom: 16px;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.26);
+  margin-bottom: 16px;
+  border-radius: 0;
+  //box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.26);
 
 }
  .card-header {
@@ -84,21 +88,33 @@ margin-bottom: 16px;
   text-align: center;
 }
 
-.dropdown-toggle.btn-secondary {
-  border-radius: 50px;
-background: transparent;
-color: #f4a443;
-border: 2px solid #f4a443;
-}
+// .dropdown-toggle.btn-secondary {
+//   border-radius: 50px;
+// background: transparent;
+// color: #f4a443;
+// border: 2px solid #f4a443;
+// }
 
-.btn-secondary {
-  border-radius: 50px;
-  background: transparent;
-  color: #f4a443;
-  border: 2px solid #f4a443;
-}
+// .btn-secondary {
+//   border-radius: 50px;
+//   background: transparent;
+//   color: #f4a443;
+//   border: 2px solid #f4a443;
+// }
 
 .card-body{
   padding: 0px;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color:$defaultcolor;
+  border-color: $defaultcolor;
+}
+
+
+
+.btn-link {
+  color: $defaultcolor;
 }
 
