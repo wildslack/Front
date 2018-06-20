@@ -2,9 +2,15 @@
   <div class="messages" #messagescontainer>
     <ul>
 
-        <li *ngFor="let msg of messages" class="replies" [ngClass]="{'replies': isCurrentUserMessage(msg.idUser), 'sent': !isCurrentUserMessage(msg.idUser)}" >
-            <p>{{msg.message}}</p>
+
+      <li *ngFor="let msg of messages" [ngClass]="{'replies': isCurrentUserMessage(msg.idUser), 'sent': !isCurrentUserMessage(msg.idUser)}" >
+        <div class="info">
+        <div>{{msg.postDate}}</div>
+          <div>{{msg.userNickname}}</div>
+        </div>
+          <p>{{msg.message}}</p>
         </li>
+
 
             <!-- <div *ngFor="let msg of messages">
       <li *ngIf="msg.idUser != idUser" class="replies" >

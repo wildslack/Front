@@ -53,7 +53,7 @@ export class MessageService {
         if (data.body) {
           const jsonMsg = JSON.parse(data.body);
           const msg = Message.create(jsonMsg.id, jsonMsg.message, jsonMsg.idUser, jsonMsg.idChannel,
-            new Date(Date.parse(jsonMsg.postDate)) );
+            new Date(Date.parse(jsonMsg.postDate)), jsonMsg.userNickname);
           msgCallback(msg);
         }
       });
