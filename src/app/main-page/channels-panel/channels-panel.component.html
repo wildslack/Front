@@ -1,64 +1,29 @@
-<!-- <div class="container">
-  <div class="row">
-    <div class="col">
-      <h6>Channels</h6>
-    </div>
-    <div class="col">
-      <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1"
-        href="div#accordion-1 .item-2">+</button>
-    </div>
-  </div>
-</div> -->
-
-
-
 <div class="card side  mb-3">
   <div class="card-header">
-      <div class="row">
+    <div class="row">
 
 
-              <h5>Channels</h5>
-              <a href="div#accordion-1 .item-2" id="dropdownMenuButton" class="add-channel" data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1">+</a>
+      <h5>Channels</h5>
+      <a href="div#accordion-1 .item-2" id="dropdownMenuButton" class="add-channel" data-toggle="collapse" aria-expanded="false"
+        aria-controls="accordion-1 .item-1">+</a>
 
-
-
-          <!-- <div class="col">
-              <h5>Channels</h5>
-          </div>-->
-                        <!--<button class="btn btn-sm btn-link app" type="button" id="dropdownMenuButton" data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1"
-              href="div#accordion-1 .item-2">+</button> -->
-          <!-- <div class="col">
-
-              <a href="div#accordion-1 .item-2" id="dropdownMenuButton" class="add-channel" data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1">+</a>
-              </div>  -->
-
-      </div>
-
+    </div>
 
   </div>
   <div class="card-body">
     <div class="collapse item-2" role="tabpanel" data-parent="#accordion-1" id="new-channel">
-      <label class="label-channel">Name</label>
-      <input type="text" id="input-text-channel">
-      <label>Description</label>
-      <input type="text" id="input-text-channel">
-      <button class="btn btn-primary app text-right" type="button">Create</button>
+      <form #channelForm="ngForm" (ngSubmit)="createChannel(channelForm)">
+        <label class="label-channel">Name</label>
+        <input type="text" id="input-text-channel" name="name" #name [(ngModel)]="channel.name">
+        <label>Description</label>
+        <input type="text" id="input-text-channel" name="desc" #desc [(ngModel)]="channel.description">
+        <button class="btn btn-primary app text-right" type="submit">Create</button>
+      </form>
     </div>
     <h6 *ngIf="lastChannel$ | async as channel">{{channel.name}}</h6>
-        <ul class="list-membre">
-            <li *ngFor="let channel of channels" (click)="switchChannel(channel)" class="members">{{channel.name}}</li>
-          </ul>
+    <ul class="list-membre">
+      <li *ngFor="let channel of channels" (click)="switchChannel(channel)" class="members">{{channel.name}}</li>
+    </ul>
 
-      <!-- <div class="row" *ngFor="let channel of channels" (click)="switchChannel(channel)">
-        <div class="col">
-          <button class="btn btn-secondary">{{channel.name}}</button>
-        </div>
-      </div> -->
   </div>
 </div>
-
-
-<!-- <input type="search" id="search-sidebar">
-      <button class="btn btn-primary" type="button" id="btn-search-sidebar">
-          Search
-      </button> -->
