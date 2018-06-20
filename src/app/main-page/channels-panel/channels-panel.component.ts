@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { ChannelService } from '../../shared/channel.service';
 import { Channel } from '../../shared/channel.model';
 import { Observable, of } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-channels-panel',
@@ -16,6 +17,7 @@ export class ChannelsPanelComponent implements OnInit {
 @Input() workspace$: Observable<Workspace>;
 channel$: Observable<Channel>;
 @Input() lastChannel$: Observable<Channel>;
+channel: Channel;
 
 
   public  channels: Channel[];
@@ -24,6 +26,7 @@ channel$: Observable<Channel>;
 
   ngOnInit() {
     this.getChannelsbyWorkspaces();
+    this.channel = new Channel;
   }
 
   getChannelsbyWorkspaces() {
@@ -42,6 +45,23 @@ channel$: Observable<Channel>;
   switchChannel(channel: Channel) {
     this.channelService.updateCurrentChan(channel);
     this.lastChannel$ = this.channelService.getCurrentChannel();
+    }
+
+    createChannel(form: NgForm) {
+      this.workspace$.subscribe((workspace: Workspace) => {
+       const channel$ = this.channelService.createChannel(this.channel, workspace.idWorkspace);
+       channel$.subscribe(c => {
+         this.switchChannel(c);
+         this.getChannelsbyWorkspaces();
+         this.resetForm(form);
+        });
+      });
+    }
+
+    resetForm(form?: NgForm) {
+      if (form != null) {
+        form.reset();
+      }
     }
 
 }

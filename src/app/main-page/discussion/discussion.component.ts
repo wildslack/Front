@@ -57,7 +57,7 @@ export class DiscussionComponent implements OnInit, AfterViewChecked {
   }
 
   sendMessage() {
-    this.messageService.sendMessage(Message.create(null, this.msgToSend, this.idUser, this.idChannel, new Date()));
+    this.messageService.sendMessage(Message.create(null, this.msgToSend, this.idUser, this.idChannel, new Date(), null));
     this.msgToSend = '';
   }
 

@@ -78,5 +78,11 @@ export class ChannelService {
     return this.http.get<Channel>(channelUrl, customHeader);
   }
 
+  createChannel(channel: Channel, idWorkspace: number) {
+    const customHeader = this.baseService.buildHttpHeader();
+    const channelUrl = environment.rootUrl + '/api/channels?idWorkspace=' + idWorkspace;
+    return this.http.post<Channel>(channelUrl, channel, customHeader);
+   }
+
 }
 
