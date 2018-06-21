@@ -3,7 +3,7 @@ import { WorkspaceService } from '../../shared/workspace.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../shared/user.model';
 import { Workspace } from '../../shared/workspace.model';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject, Subject } from 'rxjs';
 import { UserService } from '../../shared/user.service';
 
 
@@ -18,7 +18,8 @@ import { UserService } from '../../shared/user.service';
 export class WorkspacesPanelComponent implements OnInit {
 
   public workspaces: Workspace[];
-  @Input() lastWorkspace$: Observable<Workspace>;
+  // @Input() lastWorkspace$: Observable<Workspace>;
+  @Input() lastWorkspace$: Subject<Workspace>;
   constructor(private workspaceService: WorkspaceService, private httpClient: HttpClient, private userService: UserService) {
 
   }
@@ -37,7 +38,9 @@ export class WorkspacesPanelComponent implements OnInit {
 
   }
 
-
-
+  switchWorkspace(workspace: Workspace) {
+    console.log('New workspace ' + workspace.name);
+    this.lastWorkspace$.next(workspace);
+  }
 
 }
